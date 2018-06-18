@@ -1,0 +1,40 @@
+.bl_register{
+	
+	background:#1e385c;
+	background-color: rgba(30, 56, 92, 0.4);
+	
+	
+}
+.bl_register_tutor{
+	display:inline-block;
+	width:45%;
+	padding:20px;
+	text-align:left;
+}
+.bl_register_stud{
+	display:inline-block;
+	width:45%;
+	padding:20px;
+	text-align:left;
+}
+
+
+@media only screen and (max-width: 767px){
+	
+	.bl_register_stud{
+	  
+	  display:block;
+	  width:100%;
+	  padding:20px;
+	  text-align:left;
+	  
+     }
+     
+     .bl_register_tutor{
+	display:block;
+	width:100%;
+	padding:20px;
+	text-align:left;
+   }
+    
+}

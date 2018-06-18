@@ -1,0 +1,50 @@
+.tutor{
+	
+	color:#fff;
+	border : 1px solid #fff;
+	padding : 10px;
+	border-radius:20px;
+	background:#1e385c;
+	
+}
+
+.tutor:hover{
+	background:#1e385c;
+}
+
+.student{
+	color:#fff;
+	border : 1px solid #fff;
+	padding : 10px;
+	border-radius:20px;
+	background:#1e385c;
+}
+
+.student:hover{
+	
+	background:#1e385c;
+	
+	
+}
+.lab_mob{
+   
+   text-transform : uppercase;	
+   font-weight:bold;
+   font-size:25px;
+   color:#fff;
+   
+   
+}
+
+.found{
+	
+	background:#1e385c;
+	color:#fff;
+	padding:20px;
+	margin-bottom:20px;
+}
+
+.search{
+	
+	padding:50px;
+}

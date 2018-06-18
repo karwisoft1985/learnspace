@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	    <bean class="com.karwisoft.learnspace.dao.CalendrierDaoImp" id="calend1"></bean>
+		<bean class="com.karwisoft.learnspace.services.CalendrierServicesImp" id="calend2">
+		   <property name="dao_calendar" ref="calend1"></property>
+		</bean>
+		
+		<bean class="com.karwisoft.learnspace.dao.TutorDaoImp" id="tutor1"></bean>
+		<bean class="com.karwisoft.learnspace.services.TutorServicesImp" id="tutor2">
+		   <property name="dao_tuto" ref="tutor1"></property>
+		</bean>
+		
+		<bean class="com.karwisoft.learnspace.dao.StudentDaoImp" id="student1"></bean>
+		<bean class="com.karwisoft.learnspace.services.StudentServicesImp" id="student2">
+		   <property name="dao_student" ref="student1"></property>
+		</bean>
+		
+		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="-1" />
+		
+        </bean>
+		
+		<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <!-- SMTP settings -->
+    <property name="host" value="smtp.office365.com" />
+    <property name="port" value="587" />
+    <property name="username" value="info@quranspace.net" />
+    <property name="password" value="Learnspace2018!" />
+    <property name="defaultEncoding" value="UTF-8"></property>
+    <property name="javaMailProperties">
+        <!-- additional properties specific to JavaMail -->
+        <props>
+        
+             <prop key="mail.transport.protocol">smtp</prop>
+             <prop key="mail.smtp.auth">true</prop>
+             <prop key="mail.smtp.starttls.enable">true</prop>
+            
+        </props>
+    </property>
+</bean>
+</beans>
