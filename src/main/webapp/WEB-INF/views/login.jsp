@@ -76,7 +76,7 @@
                                                 
                                                 <button type="submit" class="btn btn-info">Login</button>
                                                 <a style="color:#fff;margin-left:20px;" href="inscription">Sign Up</a>
-                                                <a style="color:#fff;margin-left:20px;" href="forgot_password">Forgot your password?</a>
+                                                <a style="color:#fff;margin-left:20px;" href="forgot_password">Forgot your password ?</a>
 												
 											</form>
 										  
