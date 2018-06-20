@@ -261,7 +261,7 @@ public class TutorController {
 					 );
 			 List<Tuto> tut=service_tutor.getTutoBymail(email);
 			 if(tut.size() != 0){
-			redirectAttributes.addFlashAttribute("warning", "Your email is already exist !");
+			redirectAttributes.addFlashAttribute("warning", "Your email is already registered !");
 			return "redirect:/login";
 			 }
 			 else{
@@ -279,7 +279,7 @@ public class TutorController {
 					" Again, we are happy to have you aboard, and hope you can transfer the knowledge you have to the world and get the good reward from Allah.\n"+
 
 					 "For any questions please reply to this email or send an email to info@quranspace.net\n"+
-
+					 "IMPORTANT NOTE: By signing in and using Quran Space you agree to the Terms of use and Privacy Policy published on QuranSpace.net.\n"+
 					 "JazakAllah khair,\n"+
 					 "Quran Space Team\n"+
 					" QuranSpace.net\n";
@@ -287,7 +287,7 @@ public class TutorController {
 	                 //fin contenu du message//	        
 	          // creates a simple e-mail object
 	          SimpleMailMessage mail = new SimpleMailMessage();	         
-	        
+	        mail.setFrom("info@quranspace.net");
 	  		mail.setTo(email);
 	  		mail.setSubject("Account activation QuranSpace");
 	  		mail.setText(message);

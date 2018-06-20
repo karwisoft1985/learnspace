@@ -86,7 +86,7 @@ public class StudentController {
 		    Student st = new Student();
 			 List<Student> stud=service_student.getstudentBymail(email);
 			 if(stud.size() != 0){
-					redirectAttributes.addFlashAttribute("warning", "Your email is already exist !");
+					redirectAttributes.addFlashAttribute("warning", "Your email is already registered !");
 					return "redirect:/authentification";
 					 }
 					 else{
@@ -132,7 +132,7 @@ public class StudentController {
 "Again, we are happy to have you aboard, and hope acquire the good knowledge and you benefit from it in this Donya and hereafter. \n"+
 
 "For any questions reply to this email or send an email to info@quranspace.net \n"+
-
+"IMPORTANT NOTE: By signing in and using Quran Space you agree to the Terms of use and Privacy Policy published on QuranSpace.net. \n"+
 "JazakAllah khair, \n"+
 "Quran Space Team \n"+
 "QuranSpace.net \n";
@@ -140,7 +140,7 @@ public class StudentController {
                  //fin contenu du message//	        
           // creates a simple e-mail object
           SimpleMailMessage mail = new SimpleMailMessage();	         
-        
+        mail.setFrom("info@quranspace.net");	  		
   		mail.setTo(email);
   		mail.setSubject("Account activation QuranSpace");
   		mail.setText(message);
