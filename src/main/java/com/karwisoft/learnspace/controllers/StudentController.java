@@ -123,13 +123,13 @@ public class StudentController {
 
 "We are happy that you decided to join Quran Space Community. Quran Space is a free non-profit platform that brings together Quran Tutors and Students.  \n"+
 
-"To begin learning: \n"+
+"To begin your learning journey: \n"+
 "1.      Login with your credentials: "+email+" / "+password+ "\n"+
-"2.      Search the Tutor that you see fit with your needs and budget;  \n"+
-"3.      Contact the Tutor to setup an appointment with him/her; \n"+
+"2.      Search the Tutor that you see fits your needs and budget;  \n"+
+"3.      Contact the Tutor to setup an initial meeting; \n"+
 "4.      Start your learning journey \n"+
 
-"Again, we are happy to have you aboard, and hope acquire the good knowledge and you benefit from it in this Donya and hereafter. \n"+
+"Again, we are happy to have you aboard, and hope you acquire the good knowledge that you benefit from it in this Donya and hereafter. \n"+
 
 "For any questions reply to this email or send an email to info@quranspace.net \n"+
 "IMPORTANT NOTE: By signing in and using Quran Space you agree to the Terms of use and Privacy Policy published on QuranSpace.net. \n"+
