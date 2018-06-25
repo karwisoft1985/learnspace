@@ -1,5 +1,5 @@
 // default package
-// Generated 7 mai 2018 10:19:17 by Hibernate Tools 5.2.3.Final
+// Generated 25 juin 2018 11:15:45 by Hibernate Tools 5.2.3.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;

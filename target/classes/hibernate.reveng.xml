@@ -2,15 +2,16 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <table-filter match-catalog="quranspace" match-name="calendar"/>
-  <table-filter match-catalog="quranspace" match-name="classes"/>
-  <table-filter match-catalog="quranspace" match-name="language"/>
-  <table-filter match-catalog="quranspace" match-name="media"/>
-  <table-filter match-catalog="quranspace" match-name="media_student"/>
-  <table-filter match-catalog="quranspace" match-name="media_tutor"/>
-  <table-filter match-catalog="quranspace" match-name="review"/>
-  <table-filter match-catalog="quranspace" match-name="review_student"/>
-  <table-filter match-catalog="quranspace" match-name="student"/>
-  <table-filter match-catalog="quranspace" match-name="tut_language"/>
-  <table-filter match-catalog="quranspace" match-name="tuto"/>
+	<table-filter match-catalog="quranspace" match-name="calendar" />
+	<table-filter match-catalog="quranspace" match-name="classes" />
+	<table-filter match-catalog="quranspace" match-name="language" />
+	<table-filter match-catalog="quranspace" match-name="media" />
+	<table-filter match-catalog="quranspace" match-name="media_student" />
+	<table-filter match-catalog="quranspace" match-name="media_tutor" />
+	<table-filter match-catalog="quranspace" match-name="review" />
+	<table-filter match-catalog="quranspace" match-name="review_student" />
+	<table-filter match-catalog="quranspace" match-name="student" />
+	<table-filter match-catalog="quranspace" match-name="tut_language" />
+	<table-filter match-catalog="quranspace" match-name="tuto" />
+	<table-filter match-catalog="quranspace" match-name="messages"/>
 </hibernate-reverse-engineering>

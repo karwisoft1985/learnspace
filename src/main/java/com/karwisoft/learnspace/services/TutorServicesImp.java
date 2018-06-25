@@ -2,6 +2,7 @@ package com.karwisoft.learnspace.services;
 
 import java.util.List;
 
+import com.karwisoft.learnspace.beans.Messages;
 import com.karwisoft.learnspace.beans.Tuto;
 import com.karwisoft.learnspace.dao.TutorDaoImp;
 
@@ -140,12 +141,17 @@ public class TutorServicesImp implements TutorServices{
 	}
 
 	@Override
-	public Integer UpdateTutor(String modName, Integer modAge, String modLocRech, String modPassword,
+	public Integer UpdateTutor(String modName, String modGender, Integer modAge, String modLocRech, String modPassword,
 			String modHourly, String modSub1, String modlanguage, String modPreference, String modComMedia,
 			String modRiwaya, String modCertif, String modPreviousexp, String modAbout, String modTimeZone, String name, Integer id_tutor) {
-		return dao_tuto.UpdateTutor(modName,modAge,modLocRech,modPassword,modHourly,modSub1,modlanguage,modPreference,modComMedia,modRiwaya,modCertif,modPreviousexp,modAbout,modTimeZone,name,id_tutor);
+		return dao_tuto.UpdateTutor(modName,modGender,modAge,modLocRech,modPassword,modHourly,modSub1,modlanguage,modPreference,modComMedia,modRiwaya,modCertif,modPreviousexp,modAbout,modTimeZone,name,id_tutor);
 		
 		
+	}
+
+	@Override
+	public Integer addmessage(Messages mg) {
+		return dao_tuto.addmessage(mg);
 	}
 
 	

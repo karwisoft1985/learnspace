@@ -1,5 +1,5 @@
 // default package
-// Generated 7 mai 2018 10:19:17 by Hibernate Tools 5.2.3.Final
+// Generated 25 juin 2018 11:15:45 by Hibernate Tools 5.2.3.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,37 +18,48 @@ public class Student implements java.io.Serializable {
 	private Integer idStudent;
 	private String name;
 	private String picture;
-	private String hourlyRate;
 	private String aboutMe;
-	private String subjectsIWantLearn;
-	private int age;
+	private String subjects;
+	private String birthDate;
 	private String gender;
+	private String spokenLanguage;
 	private String riwayaToLearn;
 	private String certifications;
 	private String learningPreferences;
+	private String communication;
 	private String location;
 	private String timeZone;
 	private String membershipStartDate;
+	private String reviews;
+	private String email;
+	private String password;
+	private int actif;
 
 	public Student() {
 	}
 
-	public Student(String name, String picture, String hourlyRate, String aboutMe, String subjectsIWantLearn, int age,
-			String gender, String riwayaToLearn, String certifications, String learningPreferences, String location,
-			String timeZone, String membershipStartDate) {
+	public Student(String name, String picture, String aboutMe, String subjects, String birthDate, String gender,
+			String spokenLanguage, String riwayaToLearn, String certifications, String learningPreferences,
+			String communication, String location, String timeZone, String membershipStartDate, String reviews,
+			String email, String password, int actif) {
 		this.name = name;
 		this.picture = picture;
-		this.hourlyRate = hourlyRate;
 		this.aboutMe = aboutMe;
-		this.subjectsIWantLearn = subjectsIWantLearn;
-		this.age = age;
+		this.subjects = subjects;
+		this.birthDate = birthDate;
 		this.gender = gender;
+		this.spokenLanguage = spokenLanguage;
 		this.riwayaToLearn = riwayaToLearn;
 		this.certifications = certifications;
 		this.learningPreferences = learningPreferences;
+		this.communication = communication;
 		this.location = location;
 		this.timeZone = timeZone;
 		this.membershipStartDate = membershipStartDate;
+		this.reviews = reviews;
+		this.email = email;
+		this.password = password;
+		this.actif = actif;
 	}
 
 	@Id
@@ -81,15 +92,6 @@ public class Student implements java.io.Serializable {
 		this.picture = picture;
 	}
 
-	@Column(name = "hourly_rate", nullable = false, length = 60)
-	public String getHourlyRate() {
-		return this.hourlyRate;
-	}
-
-	public void setHourlyRate(String hourlyRate) {
-		this.hourlyRate = hourlyRate;
-	}
-
 	@Column(name = "about_me", nullable = false, length = 65535)
 	public String getAboutMe() {
 		return this.aboutMe;
@@ -99,22 +101,22 @@ public class Student implements java.io.Serializable {
 		this.aboutMe = aboutMe;
 	}
 
-	@Column(name = "subjects_i_want_learn", nullable = false, length = 65535)
-	public String getSubjectsIWantLearn() {
-		return this.subjectsIWantLearn;
+	@Column(name = "subjects", nullable = false)
+	public String getSubjects() {
+		return this.subjects;
 	}
 
-	public void setSubjectsIWantLearn(String subjectsIWantLearn) {
-		this.subjectsIWantLearn = subjectsIWantLearn;
+	public void setSubjects(String subjects) {
+		this.subjects = subjects;
 	}
 
-	@Column(name = "age", nullable = false)
-	public int getAge() {
-		return this.age;
+	@Column(name = "birth_date", nullable = false, length = 12)
+	public String getBirthDate() {
+		return this.birthDate;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	@Column(name = "gender", nullable = false, length = 15)
@@ -124,6 +126,15 @@ public class Student implements java.io.Serializable {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	@Column(name = "spoken_language", nullable = false, length = 50)
+	public String getSpokenLanguage() {
+		return this.spokenLanguage;
+	}
+
+	public void setSpokenLanguage(String spokenLanguage) {
+		this.spokenLanguage = spokenLanguage;
 	}
 
 	@Column(name = "riwaya_to_learn", nullable = false, length = 65535)
@@ -153,6 +164,15 @@ public class Student implements java.io.Serializable {
 		this.learningPreferences = learningPreferences;
 	}
 
+	@Column(name = "communication", nullable = false, length = 55)
+	public String getCommunication() {
+		return this.communication;
+	}
+
+	public void setCommunication(String communication) {
+		this.communication = communication;
+	}
+
 	@Column(name = "location", nullable = false, length = 60)
 	public String getLocation() {
 		return this.location;
@@ -171,13 +191,49 @@ public class Student implements java.io.Serializable {
 		this.timeZone = timeZone;
 	}
 
-	@Column(name = "membership_start_date", nullable = false)
+	@Column(name = "membership_start_date", nullable = false, length = 12)
 	public String getMembershipStartDate() {
 		return this.membershipStartDate;
 	}
 
 	public void setMembershipStartDate(String membershipStartDate) {
 		this.membershipStartDate = membershipStartDate;
+	}
+
+	@Column(name = "reviews", nullable = false, length = 65535)
+	public String getReviews() {
+		return this.reviews;
+	}
+
+	public void setReviews(String reviews) {
+		this.reviews = reviews;
+	}
+
+	@Column(name = "email", nullable = false)
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Column(name = "password", nullable = false, length = 50)
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Column(name = "actif", nullable = false)
+	public int getActif() {
+		return this.actif;
+	}
+
+	public void setActif(int actif) {
+		this.actif = actif;
 	}
 
 }

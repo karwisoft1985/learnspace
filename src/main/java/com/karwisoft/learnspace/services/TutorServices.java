@@ -1,5 +1,7 @@
 package com.karwisoft.learnspace.services;
 import java.util.List;
+
+import com.karwisoft.learnspace.beans.Messages;
 import com.karwisoft.learnspace.beans.Tuto;
 public interface TutorServices {
 	
@@ -25,9 +27,10 @@ public interface TutorServices {
 	public List<Tuto> getTutoBymail(String emailtutor);
 	public void activercompte(Integer idTutor);
 	public void uploadphototutor(String name, Integer idimage);
-	public Integer UpdateTutor(String modName, Integer modAge, String modLocRech, String modPassword,
+	public Integer UpdateTutor(String modName, String modGender, Integer modAge, String modLocRech, String modPassword,
 			String modHourly, String modSub1, String modlanguage, String modPreference, String modComMedia,
 			String modRiwaya, String modCertif, String modPreviousexp, String modAbout, String modTimeZone, String name, Integer id_tutor);
+	Integer addmessage(Messages mg);
 	
 
 }

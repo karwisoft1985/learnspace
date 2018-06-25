@@ -3,6 +3,8 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import com.karwisoft.learnspace.beans.Messages;
 import com.karwisoft.learnspace.beans.Tuto;
 import com.project.hibernate.HibernateUtil;
 public class TutorDaoImp implements TutorDao{
@@ -333,15 +335,16 @@ public class TutorDaoImp implements TutorDao{
 	}
 
 	@Override
-	public Integer UpdateTutor(String name, Integer age, String location, String password,
+	public Integer UpdateTutor(String name, String gender, Integer age, String location, String password,
 			String hourly, String subjectIcanteach, String language, String teachPreference, String mediaCam,
 			String riwaya, String certification, String previewExperience, String about, String timeZone, String recitation, Integer idTutor) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
           session.beginTransaction();
-          Query queryup = session.createQuery("update Tuto set  name= :name, age = :age, about = :about, timeZone= :timeZone, password = :password, hourly = :hourly, subjectIcanteach= :subjectIcanteach, language = :language, teachPreference = :teachPreference, mediaCam = :mediaCam, riwaya = :riwaya, certification = :certification, previewExperience = :previewExperience, recitation = :recitation  where idTutor = :idTutor ");
+          Query queryup = session.createQuery("update Tuto set  name= :name, gender= :gender, age = :age, about = :about, timeZone= :timeZone, password = :password, hourly = :hourly, subjectIcanteach= :subjectIcanteach, language = :language, teachPreference = :teachPreference, mediaCam = :mediaCam, riwaya = :riwaya, certification = :certification, previewExperience = :previewExperience, recitation = :recitation  where idTutor = :idTutor ");
 	      queryup.setParameter("idTutor", idTutor);
 	      queryup.setParameter("name", name);    
+	      queryup.setParameter("gender", gender); 
 	      queryup.setParameter("age", age);    
 	      queryup.setParameter("password", password);  
 	      queryup.setParameter("hourly", hourly);  
@@ -359,5 +362,15 @@ public class TutorDaoImp implements TutorDao{
 		  session.getTransaction().commit(); 
 		  session.close();
 		  return idTutor;
+	}
+
+	public Integer addmessage(Messages mg) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+		session.beginTransaction();
+    	session.save(mg);
+        session.getTransaction().commit(); 
+		session.close();
+		return mg.getIdMsg();
 	}
 }

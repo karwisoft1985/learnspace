@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="ses5">
+ <session-factory name="learnspace">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/quranspace</property>
   <property name="hibernate.connection.username">root</property>
@@ -10,5 +10,6 @@
   <property name="hibernate.current_session_context_class">thread</property>
   <mapping class="com.karwisoft.learnspace.beans.Tuto"/>
   <mapping class="com.karwisoft.learnspace.beans.Student"/>
+  <mapping class="com.karwisoft.learnspace.beans.Messages"/>
  </session-factory>
 </hibernate-configuration>

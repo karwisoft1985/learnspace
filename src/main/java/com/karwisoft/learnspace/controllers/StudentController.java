@@ -29,9 +29,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.karwisoft.learnspace.beans.Messages;
 import com.karwisoft.learnspace.beans.Student;
 import com.karwisoft.learnspace.beans.Tuto;
 import com.karwisoft.learnspace.services.StudentServices;
+import com.karwisoft.learnspace.services.TutorServices;
 
 
 @Controller
@@ -39,6 +42,9 @@ public class StudentController {
 
 	@Autowired
 	private StudentServices service_student;
+
+	@Autowired
+	private TutorServices service_tutor;
 	
 	@Autowired
 	private JavaMailSender mailSender;
@@ -293,6 +299,16 @@ public class StudentController {
 		 		mail.setSubject(subject);
 		 		mail.setText(msg);
 		 		mailSender.send(mail); 
+		 		 Messages  mg = new Messages();
+		    	  mg.setMessage(textmsg);
+		    	  mg.setExpediteur(nom_tutor);
+		    	  mg.setDestinataire(name);
+		    	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		    	  LocalDate localDate = LocalDate.now();
+		    	  String datemsg=dtf.format(localDate);
+			      mg.setDate(datemsg);
+			      mg.setType("Contact Student");
+				service_tutor.addmessage(mg);
 	    	  }
 		redirectAttributes.addFlashAttribute("successsent", "Your message has been sent successfully!");			
 		return "redirect:/index";

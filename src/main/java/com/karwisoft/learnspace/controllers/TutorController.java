@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -33,6 +34,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.karwisoft.learnspace.beans.Student;
 import com.karwisoft.learnspace.beans.Tuto;
+import com.karwisoft.learnspace.beans.Messages;
 import com.karwisoft.learnspace.services.TutorServices;
 
 @Controller
@@ -129,6 +131,7 @@ public class TutorController {
 		 public String UpdateTutor(HttpServletRequest request,Model model,
 				 @RequestParam("mod-name") String modName,
 				 @RequestParam("mod-loc-rech") String modLocRech ,
+				 @RequestParam("mod-gender") String modGender ,
 				 @RequestParam("mod-password") String modPassword ,
 				 @RequestParam("mod-subj") String modSub1 ,
 				 @RequestParam("mod-language") String modlanguage ,
@@ -172,7 +175,7 @@ public class TutorController {
 			       Integer id_tutor = (Integer) session.getAttribute("id_tutor");
 			       byte[]   bytesEncoded = Base64.getEncoder().encode(modPassword.getBytes());
 					String psd = new String(bytesEncoded);
-			       service_tutor.UpdateTutor(modName,modAge,modLocRech,psd,modHourly,modSub1,modlanguage,modPreference,modComMedia,modRiwaya,modCertif,modPreviousexp,modAbout,modTimeZone,name,id_tutor);
+			       service_tutor.UpdateTutor(modName,modGender,modAge,modLocRech,psd,modHourly,modSub1,modlanguage,modPreference,modComMedia,modRiwaya,modCertif,modPreviousexp,modAbout,modTimeZone,name,id_tutor);
 			       return "redirect:/dashboard_tutor";
 			 
 		        }
@@ -412,6 +415,7 @@ public class TutorController {
 	    		  
 	    	  Tuto item = i.next();
 	    	  JSONObject obj = new JSONObject();
+	    	 	
 	  		  String name=item.getName();
 			   String subject ="Contact QuranSpace";
 			   String msg = "Assalamu Alaykom,\n"+
@@ -434,6 +438,17 @@ public class TutorController {
 		 		mail.setSubject(subject);
 		 		mail.setText(msg);
 		 		mailSender.send(mail); 
+		 		 Messages  mg = new Messages();
+		    	  mg.setMessage(textmsg);
+		    	  mg.setDestinataire(name);
+		    	  mg.setExpediteur(nom_Student);
+		    	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		    	  LocalDate localDate = LocalDate.now();
+		    	  String datemsg=dtf.format(localDate);
+			      mg.setDate(datemsg);
+			      mg.setType("Contact Tutor");
+				service_tutor.addmessage(mg);
+				
 	    	  }
 		redirectAttributes.addFlashAttribute("successsent", "Your message has been sent successfully!");			
 		return "redirect:/index";

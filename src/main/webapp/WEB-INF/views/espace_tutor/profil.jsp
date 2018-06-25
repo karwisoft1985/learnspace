@@ -128,17 +128,16 @@ $(document).ready(function(){
 		 document.getElementById("tutor-profil").innerHTML = contenuHtml;
 		 document.getElementById("tutor-picture").innerHTML = contenuHtml1;
 		 document.getElementById("mod-name").value = donnees[0].name;
-		 document.getElementById("mod-email").value = donnees[0].email;
 		 document.getElementById("mod-age").value = donnees[0].age;
-		 document.getElementById("mod-riwaya").value = donnees[0].riwaya;
+	document.getElementById("mod-riwaya").value = donnees[0].riwaya;
 		 document.getElementById("mod-aboutme").value = donnees[0].about;
 		 document.getElementById("mod-password").value = donnees[0].password;
-		 document.getElementById("mod-hourly").value = donnees[0].hourly;
+		document.getElementById("mod-hourly").value = donnees[0].hourly;
 		 document.getElementById("mod-previous-exp").value = donnees[0].preview_experience;
 		 document.getElementById("mod-certif").value = donnees[0].certification;
 		 document.getElementById("mod-loc-rech").options[0].value = donnees[0].location;
 		 document.getElementById("mod-loc-rech").options[0].text = donnees[0].location;
-		 document.getElementById("mod-subj").options[0].value = donnees[0].subject_icanteach;
+		document.getElementById("mod-subj").options[0].value = donnees[0].subject_icanteach;
 		 document.getElementById("mod-subj").options[0].text = donnees[0].subject_icanteach;
 		 document.getElementById("mod-com-media").options[0].value = donnees[0].media_cam;
 		 document.getElementById("mod-com-media").options[0].text = donnees[0].media_cam;
@@ -148,6 +147,8 @@ $(document).ready(function(){
 		 document.getElementById("mod-timezone").options[0].text = donnees[0].timezone;
 		 document.getElementById("mod-preference").options[0].value = donnees[0].teach_preference;
 		 document.getElementById("mod-preference").options[0].text = donnees[0].teach_preference;
+		 document.getElementById("mod-gender").options[0].value = donnees[0].gender;
+		 document.getElementById("mod-gender").options[0].text = donnees[0].gender;
 		  
 	    });
 });	
@@ -239,6 +240,15 @@ $(document).ready(function(){
        <label for="inputEmail4">Name * </label>
        <input type="text" class="form-control" id="mod-name" name="mod-name" placeholder="Name" required />
     </div>
+    
+     <div class="form-group col-md-12">
+       <label for="inputEmail4">Gender</label>
+      <select name="mod-gender" id="mod-gender" class="form-control">     
+ <option selected="selected"></option>
+<option>Man</option>
+<option>Woman</option>
+</select>
+  </div>
     
      <div class="form-group col-md-12">
        <label for="inputEmail4">Age </label>
