@@ -5,9 +5,7 @@
 <html class="no-js" lang="zxx">
   
    <%@ include file="/WEB-INF/views/includes/header.jsp" %>
-   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-   <script src="<%=request.getContextPath()%>/resources/js_webservices/gestiontutors/tutors.js"></script>
-   
+   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
 <script>
 $(document).ready(function(){
 	var CheminComplet = window.location.pathname;

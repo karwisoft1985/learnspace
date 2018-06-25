@@ -411,7 +411,14 @@ public class StudentController {
 	       
 	      }
 
-
+			@RequestMapping(value = "/rechercherStudent", method = RequestMethod.GET)
+			public ModelAndView rechercherStudent(){
+				
+				ModelAndView modelAndView = new ModelAndView();
+				modelAndView.setViewName("list_students");
+				return modelAndView;
+				
+			}
 			@RequestMapping(value = "/profil_student/{id}", method = RequestMethod.GET)
 			public ModelAndView profil_student(@PathVariable("id") int idStudent,HttpSession session){				
 				 ModelAndView modelAndView = new ModelAndView();
@@ -459,7 +466,469 @@ public class StudentController {
 		   
 			}
 			
-		 
+			@RequestMapping(value = "/liststudents", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String liststudents() throws JSONException{
+				
+				JSONArray array = new JSONArray(); 
+		    	List<Student> listStudent =  service_student.getStudents();
+		    	for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){
+		    	  
+		    		Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();		   
+			}	 
+			
+			@RequestMapping(value = "/searchstudentsel/{subject}/{location}/{language}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListSearchTutorsel(
+		    		@PathVariable("subject") String subject ,
+		    		@PathVariable("location") String location ,
+		    		@PathVariable("language") String language 
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereel(subject, language, location);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}
+			
+			@RequestMapping(value = "/searchstudentses/{gender}/{location}/{language}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListSearchstudentsel(
+		    		@PathVariable("gender") String gender ,
+		    		@PathVariable("location") String location ,
+		    		@PathVariable("language") String language 
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereses(gender, language, location);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}
+			
+			@RequestMapping(value = "/searchstudentselo/{gender}/{subject}/{language}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListSearchstudentselo(
+		    		@PathVariable("gender") String gender ,
+		    		@PathVariable("subject") String subject ,
+		    		@PathVariable("language") String language 
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereselo(gender, language, subject);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}
+			@RequestMapping(value = "/searchstudentselg/{gender}/{subject}/{location}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentselg(
+		    		@PathVariable("gender") String gender ,
+		    		@PathVariable("subject") String subject ,
+		    		@PathVariable("location") String location 
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereselg(gender, subject, location);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}
+			@RequestMapping(value = "/searchstudentsegs/{location}/{language}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentsegs(
+		    		@PathVariable("location") String location,
+		    		@PathVariable("language") String language
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCriteresegs(location,language);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}	
+			
+			@RequestMapping(value = "/searchstudentseslo/{gender}/{language}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentseslo(
+		    		@PathVariable("gender") String gender,
+		    		@PathVariable("language") String language
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereseslo(gender,language);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}	
+
+			@RequestMapping(value = "/searchstudentselol/{gender}/{subject}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentselol(
+		    		@PathVariable("gender") String gender,
+		    		@PathVariable("subject") String subject
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereselol(gender,subject);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}		
+
+			@RequestMapping(value = "/searchstudentseslg/{gender}/{location}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentselg(
+		    		@PathVariable("gender") String gender,
+		    		@PathVariable("location") String location
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereselg(gender,location);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}	
+
+			@RequestMapping(value = "/searchstudentseglg/{subject}/{location}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentseglg(
+		    		@PathVariable("subject") String subject,
+		    		@PathVariable("location") String location
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereseglg(subject,location);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}	
+
+			@RequestMapping(value = "/searchstudentseglo/{subject}/{language}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentseglo(
+		    		@PathVariable("subject") String subject,
+		    		@PathVariable("language") String language
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereseglo(subject,language);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}				
+
+			@RequestMapping(value = "/searchstudentsg/{gender}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentsg(
+		    		@PathVariable("gender") String gender
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCriteresg(gender);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}			
+
+			@RequestMapping(value = "/searchstudentssub/{subject}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentsb(
+		    		@PathVariable("subject") String subject
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCriteresub(subject);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}							
+
+			@RequestMapping(value = "/searchstudentslo/{location}", method=RequestMethod.GET)
+		    @ResponseBody
+		    public  String webserviceListsearchstudentslo(
+		    		@PathVariable("location") String location
+					) throws JSONException{
+				JSONArray array = new JSONArray();
+				List<Student> listStudent =  service_student.getStudentByCritereslo(location);
+				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+		    	  Student item = i.next();
+		  	      JSONObject obj = new JSONObject();
+				  obj.put("id",item.getIdStudent());
+		  		  obj.put("name",item.getName());
+				  obj.put("picture",item.getPicture());
+				  obj.put("about",item.getAboutMe());
+				  obj.put("subjects",item.getsubjects());
+				  obj.put("birthdate",item.getbirthdate());
+				  obj.put("gender",item.getGender());
+				  obj.put("riwaya",item.getRiwayaToLearn());
+				  obj.put("certification",item.getCertifications());
+				  obj.put("learn_preference",item.getLearningPreferences());
+				  obj.put("location",item.getLocation());
+				  obj.put("language",item.getSpokenlanguage());
+				  array.put(obj);
+		  		
+		    	}
+		    	return array.toString();   
+			}	
+			
+@RequestMapping(value = "/searchstudentslg/{language}", method=RequestMethod.GET)
+@ResponseBody
+public  String webserviceListsearchstudentslg(
+	@PathVariable("language") String language
+	) throws JSONException{
+JSONArray array = new JSONArray();
+List<Student> listStudent =  service_student.getStudentByCritereslg(language);
+for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+  Student item = i.next();
+    JSONObject obj = new JSONObject();
+  obj.put("id",item.getIdStudent());
+	  obj.put("name",item.getName());
+  obj.put("picture",item.getPicture());
+  obj.put("about",item.getAboutMe());
+  obj.put("subjects",item.getsubjects());
+  obj.put("birthdate",item.getbirthdate());
+  obj.put("gender",item.getGender());
+  obj.put("riwaya",item.getRiwayaToLearn());
+  obj.put("certification",item.getCertifications());
+  obj.put("learn_preference",item.getLearningPreferences());
+  obj.put("location",item.getLocation());
+  obj.put("language",item.getSpokenlanguage());
+  array.put(obj);
+	
+}
+return array.toString();   
+}							
+
+@RequestMapping(value = "/searchstudents/{gender}/{subject}/{location}/{language}", method=RequestMethod.GET)
+@ResponseBody
+public  String webserviceListSearchStudents(
+		@PathVariable("gender") String gender ,
+		@PathVariable("subject") String subject ,
+		@PathVariable("location") String location ,
+		@PathVariable("language") String language 
+		) throws JSONException{
+	JSONArray array = new JSONArray();
+	List<Student> listStudent =  service_student.getStudentByCriteres(gender, subject, location, language);
+	for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
+	  Student item = i.next();
+	      JSONObject obj = new JSONObject();
+	  obj.put("id",item.getIdStudent());
+		  obj.put("name",item.getName());
+	  obj.put("picture",item.getPicture());
+	  obj.put("about",item.getAboutMe());
+	  obj.put("subjects",item.getsubjects());
+	  obj.put("birthdate",item.getbirthdate());
+	  obj.put("gender",item.getGender());
+	  obj.put("riwaya",item.getRiwayaToLearn());
+	  obj.put("certification",item.getCertifications());
+	  obj.put("learn_preference",item.getLearningPreferences());
+	  obj.put("location",item.getLocation());
+	  obj.put("language",item.getSpokenlanguage());
+	  array.put(obj);
+		
+	}
+	return array.toString();   
+}
+				
 		 @RequestMapping(value="/deconnexion")
 			public String deconnexionetudiant(HttpServletRequest request){
 				 HttpSession session = request.getSession(); 

@@ -23,4 +23,36 @@ public interface StudentServices {
 
 	public void activercompte(Integer idStudent);
 
+	public List<Student> getStudents();
+
+	public List<Student> getStudentByCritereel(String subject, String language, String location);
+
+	public List<Student> getStudentByCritereses(String gender, String language, String location);
+
+	public List<Student> getStudentByCritereselo(String gender, String language, String subject);
+
+	public List<Student> getStudentByCritereselg(String gender, String subject, String location);
+
+	public List<Student> getStudentByCriteresegs(String location, String language);
+
+	public List<Student> getStudentByCritereseslo(String gender, String language);
+
+	public List<Student> getStudentByCritereselol(String gender, String subject);
+
+	public List<Student> getStudentByCritereselg(String gender, String location);
+
+	public List<Student> getStudentByCritereseglg(String subject, String location);
+
+	public List<Student> getStudentByCritereseglo(String subject, String language);
+
+	public List<Student> getStudentByCriteresg(String gender);
+
+	public List<Student> getStudentByCriteresub(String subject);
+
+	public List<Student> getStudentByCritereslo(String location);
+
+	public List<Student> getStudentByCritereslg(String language);
+
+	public List<Student> getStudentByCriteres(String gender, String subject, String location, String language);
+
 }

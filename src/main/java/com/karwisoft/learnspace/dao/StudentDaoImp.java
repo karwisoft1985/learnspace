@@ -117,4 +117,262 @@ public class StudentDaoImp implements StudentDao{
 		     session.close();
 	}
 
+	@Override
+	public List<Student> getStudents() {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Integer actif = 1;
+        String hql = "FROM Student where actif = :actif";
+        Query query = session.createQuery(hql);
+	     query.setParameter("actif", actif);
+        List<Student> resps = (List<Student>) query.list();
+        session.getTransaction().commit(); 
+		session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereel(String subject, String language, String location) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.subjects like :subject and ST.location = :location and ST.spokenlanguage like :language";
+        Query query = session.createQuery(hql);
+        String lg= "%" + language + "%";
+        String sbj= "%" + subject + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("subject",sbj);
+        query.setParameter("location",location);
+        query.setParameter("language",lg);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereses(String gender, String language, String location) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.gender like :gender and ST.location = :location and ST.spokenlanguage like :language";
+        Query query = session.createQuery(hql);
+        String lg= "%" + language + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("gender",gender);
+        query.setParameter("location",location);
+        query.setParameter("language",lg);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereselo(String gender, String language, String subject) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.subjects like :subject and ST.gender = :gender and ST.spokenlanguage like :language";
+        Query query = session.createQuery(hql);
+        String lg= "%" + language + "%";
+        String sbj= "%" + subject + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("subject",sbj);
+        query.setParameter("gender",gender);
+        query.setParameter("language",lg);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereselg(String gender, String subject, String location) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.subjects like :subject and ST.location = :location and ST.gender like :gender";
+        Query query = session.createQuery(hql);
+        String sbj= "%" + subject + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("subject",sbj);
+        query.setParameter("location",location);
+        query.setParameter("gender",gender);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCriteresegs(String location, String language) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.location = :location and ST.spokenlanguage like :language";
+        Query query = session.createQuery(hql);
+        String lg= "%" + language + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("location",location);
+        query.setParameter("language",lg);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+        }
+
+	@Override
+	public List<Student> getStudentByCritereseslo(String gender, String language) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.gender = :gender and ST.spokenlanguage like :language";
+        Query query = session.createQuery(hql);
+        String lg= "%" + language + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("gender",gender);
+        query.setParameter("language",lg);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereselol(String gender, String subject) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.subjects like :subject and ST.gender like :gender";
+        Query query = session.createQuery(hql);
+        String sbj= "%" + subject + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("subject",sbj);
+        query.setParameter("gender",gender);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereselg(String gender, String location) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.location like :location and ST.gender like :gender";
+        Query query = session.createQuery(hql);
+       query.setParameter("actif", actif);	
+        query.setParameter("gender",gender);
+        query.setParameter("location",location);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereseglg(String subject, String location) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.location like :location and ST.subjects like :subject";
+        Query query = session.createQuery(hql);
+        String sbj= "%" + subject + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("subject",sbj);
+        query.setParameter("location",location);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereseglo(String subject, String language) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.spokenlanguage like :language and ST.subjects like :subject";
+        Query query = session.createQuery(hql);
+        String sbj= "%" + subject + "%";
+        String lg= "%" + language + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("subject",sbj);
+        query.setParameter("language",lg);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCriteresg(String gender) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.gender like :gender";
+        Query query = session.createQuery(hql);
+       query.setParameter("actif", actif);	
+        query.setParameter("gender",gender);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCriteresub(String subject) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.subjects like :subject";
+        Query query = session.createQuery(hql);
+        String sbj= "%" + subject + "%";
+	     query.setParameter("actif", actif);	
+        query.setParameter("subject",sbj);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereslo(String location) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.location like :location";
+        Query query = session.createQuery(hql);
+	     query.setParameter("actif", actif);	
+        query.setParameter("location",location);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCritereslg(String language) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.spokenlanguage like :language";
+        Query query = session.createQuery(hql);  
+        String lg= "%" + language + "%";
+	     query.setParameter("actif", actif);	
+	        query.setParameter("language",lg);	        
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+	}
+
+	@Override
+	public List<Student> getStudentByCriteres(String gender, String subject, String location, String language) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();  
+        Integer actif = 1;
+        String hql = "FROM Student ST WHERE ST.actif = :actif and ST.subjects like :subject and ST.gender like :gender and ST.location = :location and ST.spokenlanguage like :language";
+        Query query = session.createQuery(hql);
+        String lg= "%" + language + "%";
+        String sbj= "%" + subject + "%";
+	    query.setParameter("actif", actif);	
+	    query.setParameter("gender",gender);	
+        query.setParameter("subject",sbj);
+        query.setParameter("location",location);
+        query.setParameter("language",lg);
+        List<Student> resps = (List<Student>) query.list();
+        session.close();
+        return resps;
+        }
+
 }
