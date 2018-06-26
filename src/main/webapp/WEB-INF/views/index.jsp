@@ -57,7 +57,7 @@
 									       <div class="row">
 									       <div class="col-md-3">
 									       <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Subject</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.subject" /></label>
                                                 <select name="sub-rech" id="sub-rech" class="form-control">
                                                   <option value="">--</option>
                                                   <option>Quran Memorization</option>
