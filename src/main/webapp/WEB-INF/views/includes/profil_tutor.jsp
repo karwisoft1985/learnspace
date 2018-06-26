@@ -155,7 +155,7 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
        
-        <h5 class="modal-title" id="exampleModalLabel">Send Message</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><spring:message code="label.send_msg" /></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -170,7 +170,8 @@ $(document).ready(function(){
              <textarea class="form-control" rows="5" name="textmsg">
              </textarea>
           
-             <input type="submit" class="btn btn-primary" value="Send" />
+               <spring:message code="label.send" var="labelsend"></spring:message>
+       		<input type="submit" class="btn btn-primary" value="${labelsend }" />
      
          </form>
       
@@ -180,22 +181,24 @@ $(document).ready(function(){
         <form action="connexion_student2" method="post">
       
           <div class="form-group">
-               <label for="exampleInputEmail1" style="color:#fff;">Email address</label>
-               <input type="email" class="form-control" name="emailstud" aria-describedby="emailHelp" placeholder="Enter email">
+               <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.email_address" /></label>
+               <spring:message code="label.enter_mail" var="labelentermail"></spring:message>
+       		 <input type="email" class="form-control" name="emailstud" aria-describedby="emailHelp" placeholder="${labelentermail }">
             </div>
             <div class="form-group">
-                   <label for="exampleInputPassword1" style="color:#fff;">Password</label>
-                    <input type="password" class="form-control" name="passwordstud" placeholder="Password">
+                   <label for="exampleInputPassword1" style="color:#fff;"><spring:message code="label.password" /></label>
+             <spring:message code="label.password" var="labelpassword"></spring:message>
+       		<input type="password" class="form-control" name="passwordstud" placeholder="${labelpassword }">
             </div>
             <button type="submit" class="btn btn-info">Connexion</button>
-			<a style="color:#fff;margin-left:20px;" href="registration" class="btn btn-info">Inscription</a>
-             <a style="color:#fff;margin-left:20px;" href="forgotpassword">Forgot your password?</a>
+			<a style="color:#fff;margin-left:20px;" href="registration" class="btn btn-info"><spring:message code="label.inscription" /></a>
+             <a style="color:#fff;margin-left:20px;" href="forgotpassword"><spring:message code="label.forgot_password" /></a>
 												
          </form>
       </c:if>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><spring:message code="label.close" /></button>
         
       </div>
       

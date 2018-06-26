@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 	<%@ include file="/WEB-INF/views/includes/header.jsp" %>
@@ -204,7 +205,7 @@ $(document).ready(function(){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update My Profile</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><spring:message code="label.update_profil" /></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -214,26 +215,26 @@ $(document).ready(function(){
         <input type="hidden" id="mod-id" name="mod-id" />        
          <div class="form-row">
 <div class="form-group col-md-12">
-<label for="inputEmail4">Name *</label>
+<label for="inputEmail4"><spring:message code="label.name" /> *</label>
 <input type="text" class="form-control" id="mod-name" name="mod-name" required />
     </div>
      <div class="form-group col-md-12">
-          <label >Gender</label>
+          <label ><spring:message code="label.gender" /></label>
           <select name="mod-gender" id="mod-gender" class="form-control">
           		<option selected></option>
-               <option>Man</option>
-               <option>Woman</option>
+               <option><spring:message code="label.opt1gender" /></option>
+               <option><spring:message code="label.opt2gender" /></option>
            </select>
          
      </div>
  </div>
 <div class="form-row">
     <div class="form-group col-md-12">
-      <label >Password *</label>
+      <label ><spring:message code="label.password" /> *</label>
       <input type="text" class="form-control" name="mod-password" id="mod-password" required />
     </div>
       <div class="form-group col-md-12">
-    <label >Country</label>
+    <label ><spring:message code="label.country" /></label>
     <select name="mod-loc"  id="mod-loc" class="form-control">
     <option selected="selected"></option>
 
@@ -489,17 +490,17 @@ $(document).ready(function(){
    </div>
     <div class="form-row">
     <div class="form-group col-md-12">
-       <label >About me</label>
+       <label ><spring:message code="label.about_me" /></label>
        <textarea class="form-control" name="mod-aboutme" id="mod-aboutme"></textarea>
     </div>
     <div class="form-group col-md-12">
-       <label >Date of Birth</label>
+       <label ><spring:message code="label.birth_date" /></label>
        <input type="date" class="form-control" name="mod-birthdate" id="mod-birthdate" />
     </div>	
    </div>
    <div class="form-row">
     <div class="form-group col-md-12">
-       <label for="">Spoken Languages</label>
+       <label for=""><spring:message code="label.spoken_lang" /></label>
        <select class="form-control" id="mod-language"  multiple name="mod-language" >
            <option selected></option>
 <option>Akan</option>
@@ -605,12 +606,12 @@ $(document).ready(function(){
        </select>
     </div>
      <div class="form-group col-md-12">
-          <label >Subjects (I want to learn) *</label>
+          <label ><spring:message code="label.subject_learn" /> *</label>
           <select name="mod-subject" id="mod-subject" multiple class="form-control" required>
           		<option selected></option>
-               <option>Quran Memorization</option>
-               <option>Quran Tajweed</option>
-               <option>Arabic Classes</option>
+               <option><spring:message code="label.opt1subject" /></option>
+               <option><spring:message code="label.opt2subject" /></option>
+               <option><spring:message code="label.opt3subject" /></option>
            </select>
          
      </div>
@@ -620,7 +621,7 @@ $(document).ready(function(){
 <div class="form-row">
      
      <div class="form-group col-md-12">
-       <label >Communication Media</label>
+       <label ><spring:message code="label.com_media" /></label>
        
        <select name="mod-com-media" id="mod-com-media" class="form-control" >
           <option selected></option>
@@ -633,13 +634,13 @@ $(document).ready(function(){
      </div>
 
      <div class="form-group col-md-12">
-       <label >Learning preferences </label>
+       <label ><spring:message code="label.learning" /></label>
        
        <select name="mod-preference" id="mod-preference" class="form-control" >
           		<option selected></option>
-               <option>Audio only</option>
-               <option>Audio and video</option>
-               <option>Screen share</option>
+               <option><spring:message code="label.opt1learning" /></option>
+               <option><spring:message code="label.opt2learning" /></option>
+               <option><spring:message code="label.opt3learning" /></option>
            
         </select>
      </div>
@@ -648,19 +649,19 @@ $(document).ready(function(){
     
  <div class="form-row">
     <div class="form-group col-md-12">
-       <label >Riwaya to learn</label>
+       <label ><spring:message code="label.riwaya_learn" /></label>
        <input type="text" class="form-control" name="mod-riwaya" id="mod-riwaya"/>
     </div>
   
     <div class="form-group col-md-12">
-       <label >Certifications (Ijazat)</label>
+       <label ><spring:message code="label.certifications" /></label>
        <textarea class="form-control" name="mod-certif" id="mod-certif"></textarea>
     </div>	
  </div>
      
    <div class="form-row">
      <div class="form-group col-md-12">
-       <label >Time zone</label>
+       <label ><spring:message code="label.timezone" /></label>
      <select class="form-control" id="mod-timezone" name="mod-timezone" >
      <option selected></option>
      <option value="(GMT -12:00) Eniwetok, Kwajalein">(GMT -12:00) Eniwetok, Kwajalein</option>

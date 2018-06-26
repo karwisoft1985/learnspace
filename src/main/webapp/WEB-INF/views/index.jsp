@@ -60,15 +60,15 @@
                                                 <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.subject" /></label>
                                                 <select name="sub-rech" id="sub-rech" class="form-control">
                                                   <option value="">--</option>
-                                                  <option>Quran Memorization</option>
-                                                  <option>Quran Tajweed</option>
-                                                  <option>Arabic Classes</option>
+                                                  <option><spring:message code="label.opt1subject" /></option>
+                                                  <option><spring:message code="label.opt2subject" /></option>
+                                                  <option><spring:message code="label.opt3subject" /></option>
                                                 </select>
                                             </div>
                                             </div>
                                             <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Language</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.Lang" /></label>
                                                 <select name="lan-rech" id="lan-rech" class="form-control">
                                                   <option value="">--</option>
                                                   <option>Akan</option>
@@ -176,17 +176,17 @@
                                             </div>
                                             <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Gender</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.gender" /></label>
                                                 <select name="gender-rech" id="gender-rech" class="form-control">
                                                   <option value="" >--</option>
-                                                  <option>Man</option>
-                                                  <option>Woman</option>
+                                                  <option><spring:message code="label.opt1gender" /></option>
+                                                  <option><spring:message code="label.opt2gender" /></option>
                                                 </select>
                                             </div>
                                             </div>
                                             <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Country</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.country" /></label>
                                                 <select name="loc-rech" id="loc-rech" class="form-control">
                                                   <option value="" selected="selected">--</option>
                                  
@@ -450,7 +450,7 @@
 <div class="col-md-12">
 <div class="form-group">
                  
-   <a href="javascript:rechercheTutors();" class="btn btn-info" style="padding-left:100px;padding-right:100px;padding-top:20px;padding-bottom:20px;">Search</a>
+   <a href="javascript:rechercheTutors();" class="btn btn-info" style="padding-left:100px;padding-right:100px;padding-top:20px;padding-bottom:20px;"><spring:message code="label.search" /></a>
                     
                     
 </div>
@@ -464,35 +464,39 @@
 										   
 										   
 										   <div class="bl_register_tutor">
-										       <h3 style="color:#fff;text-transform:uppercase;">Student Profil</h3>
+										       <h3 style="color:#fff;text-transform:uppercase;"><spring:message code="label.student_profil" /></h3>
 										       <form>
                                                 <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.email_address" /></label>
+                                                        <spring:message code="label.enter_mail" var="labelentermail"></spring:message>                 
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="${labelentermail}">
                                                 </div>
                                                <div class="form-group">
-                                                 <label for="exampleInputPassword1" style="color:#fff;">Password</label>
-                                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                 <label for="exampleInputPassword1" style="color:#fff;"><spring:message code="label.password" /></label>
+                                                  <spring:message code="label.password" var="labelpassword"></spring:message>                 
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="${labelpassword}">
                                                 </div>
-                                                <button type="submit" class="btn btn-info">Connexion</button>
-												<a style="color:#fff;margin-left:20px;" href="">Inscription</a>
+                                                <button type="submit" class="btn btn-info"><spring:message code="label.connexion" /></button>
+												<a style="color:#fff;margin-left:20px;" href=""><spring:message code="label.inscription" /></a>
                                                 </form>
 										   </div>
 										   <div class="bl_register_stud">
-										       <h3 style="color:#fff;text-transform:uppercase;">Tutor Profil</h3>
+										       <h3 style="color:#fff;text-transform:uppercase;"><spring:message code="label.tutor_profil" /></h3>
 										       <form action="connexion_tutor" method="post">
 											   <div class="form-group">
 												
-                                                <label for="exampleInputEmail1" style="color:#fff;">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" name="emailTutor" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.email_address" /></label>
+                                                <spring:message code="label.enter_mail" var="labelentermail"></spring:message>                 
+                                               <input type="email" class="form-control" id="exampleInputEmail1" name="emailTutor" aria-describedby="emailHelp" placeholder="${labelentermail}" />
                                                
 											   </div>
                                                <div class="form-group">
-                                                 <label for="exampleInputPassword1" style="color:#fff;">Password</label>
-                                                 <input type="password" name="passwordTutor" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                 <label for="exampleInputPassword1" style="color:#fff;"><spring:message code="label.password" /></label>
+                                                  <spring:message code="label.password" var="labelpassword"></spring:message>                 
+                                               <input type="password" name="passwordTutor" class="form-control" id="exampleInputPassword1" placeholder="${labelpassword}" />
                                                 </div>
-                                                <button type="submit" class="btn btn-info">Connexion</button>
-                                                <a style="color:#fff;margin-left:20px;" href="inscription">Inscription</a>
+                                                <button type="submit" class="btn btn-info"><spring:message code="label.connexion" /></button>
+                                                <a style="color:#fff;margin-left:20px;" href="inscription"><spring:message code="label.inscription" /></a>
 												
 												</form>
 												
@@ -531,22 +535,22 @@
 			<center><strong>${successsent}</strong></center>
 		    </div>
 			</c:if>
-									       <h3 style="color:#fff;text-transform:uppercase;">Find a Student</h3>
+									       <h3 style="color:#fff;text-transform:uppercase;"><spring:message code="label.FindAstudent" /></h3>
 									       <div class="row">
 									       <div class="col-md-3">
 									       <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Subject</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.subject" /></label>
                                                 <select name="subrech" id="subrech" class="form-control">
                                                   <option value="">--</option>
-                                                  <option>Quran Memorization</option>
-                                                  <option>Quran Tajweed</option>
-                                                  <option>Arabic Classes</option>
+                                                  <option><spring:message code="label.opt1subject" /></option>
+                                                  <option><spring:message code="label.opt2subject" /></option>
+                                                  <option><spring:message code="label.opt3subject" /></option>
                                                 </select>
                                             </div>
                                             </div>
                                             <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Language</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.Lang" /></label>
                                                 <select name="lanrech" id="lanrech" class="form-control">
                                                   <option value="">--</option>
                                                   <option>Akan</option>
@@ -654,17 +658,17 @@
                                             </div>
                                             <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Gender</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.gender" /></label>
                                                 <select name="genderrech" id="genderrech" class="form-control">
                                                   <option value="" >--</option>
-                                                  <option>Man</option>
-                                                  <option>Woman</option>
+                                                  <option><spring:message code="label.opt1gender" /></option>
+                                                  <option><spring:message code="label.opt2gender" /></option>
                                                 </select>
                                             </div>
                                             </div>
                                             <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Country</label>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.country" /></label>
                                                 <select name="locrech" id="locrech" class="form-control">
                                                   <option value="" selected="selected">--</option>
                                  
@@ -928,7 +932,7 @@
 <div class="col-md-12">
 <div class="form-group">
                  
-   <a href="javascript:rechercheStudents();" class="btn btn-info" style="padding-left:100px;padding-right:100px;padding-top:20px;padding-bottom:20px;">Search</a>
+   <a href="javascript:rechercheStudents();" class="btn btn-info" style="padding-left:100px;padding-right:100px;padding-top:20px;padding-bottom:20px;"><spring:message code="label.search" /></a>
                     
                     
 </div>

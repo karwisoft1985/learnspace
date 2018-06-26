@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html class="no-js" lang="zxx">
@@ -48,7 +49,7 @@
 										   
 										       <c:if test="${not empty indexmsg}">
 		                                          <div class="col-md-12">
-						                              <div class="alert alert-danger"><strong>Error !</strong> ${indexmsg}</div>
+						                              <div class="alert alert-danger"><strong><spring:message code="label.error" /> </strong> ${indexmsg}</div>
 					                              </div>
                                                 </c:if>
                                                 
@@ -60,23 +61,25 @@
 						                              <strong>${warning}</strong>
 					                              </div>
                                                 </c:if> 
-                                               <h3 style="color:#fff;text-transform:uppercase;">Tutor Login</h3>
+                                               <h3 style="color:#fff;text-transform:uppercase;"><spring:message code="label.tutor_login" /> </h3>
 										      
 										     <form action="connexion_tutor" method="post">
 										       
 										       <div class=" col-xs-12 form-group">
-												   <label for="exampleInputEmail1" style="color:#fff;">Email address</label>
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" name="emailTutor" aria-describedby="emailHelp" placeholder="Enter email">
+												   <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.email_address" /></label>
+                   								 <spring:message code="label.enter_mail" var="labelentermail"></spring:message>    
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" name="emailTutor" aria-describedby="emailHelp" placeholder="${labelentermail}">
                                                </div>
                                                
                                                <div class=" col-xs-12 form-group">
-                                                 <label for="exampleInputPassword1" style="color:#fff;">Password</label>
-                                                 <input type="password" name="passwordTutor" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                 <label for="exampleInputPassword1" style="color:#fff;"><spring:message code="label.password" /></label>
+                                                <spring:message code="label.password" var="labelpassword"></spring:message>    
+                                                     <input type="password" name="passwordTutor" class="form-control" id="exampleInputPassword1" placeholder="${labelpassword}">
                                                 </div>
                                                 
-                                                <button type="submit" class="btn btn-info">Login</button>
-                                                <a style="color:#fff;margin-left:20px;" href="inscription">Sign Up</a>
-                                                <a style="color:#fff;margin-left:20px;" href="forgot_password">Forgot your password?</a>
+                                                <button type="submit" class="btn btn-info"><spring:message code="label.login" /></button>
+                                                <a style="color:#fff;margin-left:20px;" href="inscription"><spring:message code="label.sign_up" /></a>
+                                                <a style="color:#fff;margin-left:20px;" href="forgot_password"><spring:message code="label.forgot_password" /></a>
 												
 											</form>
 										  

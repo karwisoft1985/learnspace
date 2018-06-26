@@ -7,19 +7,19 @@
 								  <div class="dropdown show"   >
                                   
 								  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff;">
-                                      <i class="fa fa-user-o"></i> Welcome ${ nom_Student }
+                                      <i class="fa fa-user-o"></i> <spring:message code="label.welcome" /> ${ nom_Student }
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                   <c:choose>
   									<c:when test="${type == 'tutor'}">
-                                   <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_tutor">My Profile</a>
+                                   <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_tutor"> <spring:message code="label.my_profile" /></a>
                                     </c:when>
  								 <c:when test="${type == 'student'}">
-                                   <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_student">My Profile</a>
+                                   <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_student"> <spring:message code="label.my_profile" /></a>
                                    </c:when>
                                    </c:choose>
                                    <a class="dropdown-item" href="<%=request.getContextPath()%>/deconnexion">
-									Sign Out</a>
+									 <spring:message code="label.sign_out" /></a>
                                  </div>
                                  </div></div> 
 								 </a>

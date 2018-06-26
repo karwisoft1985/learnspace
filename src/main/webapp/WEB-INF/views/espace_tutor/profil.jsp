@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 	<%@ include file="/WEB-INF/views/includes/header.jsp" %>
@@ -223,7 +224,7 @@ $(document).ready(function(){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update My Profile</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><spring:message code="label.update_profil" /></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -237,21 +238,21 @@ $(document).ready(function(){
     <div class="form-row">
     
     <div class="form-group col-md-12">
-       <label for="inputEmail4">Name * </label>
+       <label for="inputEmail4"><spring:message code="label.name" /> * </label>
        <input type="text" class="form-control" id="mod-name" name="mod-name" placeholder="Name" required />
     </div>
     
      <div class="form-group col-md-12">
-       <label for="inputEmail4">Gender</label>
+       <label for="inputEmail4"><spring:message code="label.gender" /></label>
       <select name="mod-gender" id="mod-gender" class="form-control">     
  <option selected="selected"></option>
-<option>Man</option>
-<option>Woman</option>
+<option><spring:message code="label.opt1gender" /></option>
+<option><spring:message code="label.opt2gender" /></option>
 </select>
   </div>
     
      <div class="form-group col-md-12">
-       <label for="inputEmail4">Age </label>
+       <label for="inputEmail4"><spring:message code="label.age" /> </label>
        <input type="number" class="form-control" id="mod-age" name="mod-age" placeholder="Age" />
     </div>
    
@@ -260,12 +261,12 @@ $(document).ready(function(){
  <div class="form-row">
  
 <div class="form-group col-md-12">
-       <label for="inputEmail4">Password *</label>
+       <label for="inputEmail4"><spring:message code="label.password" /> *</label>
        <input type="text" class="form-control" id="mod-password" name="mod-password" placeholder="Password" required />
 </div>
 
     <div class="form-group col-md-12">
-    <label >Country</label>
+    <label ><spring:message code="label.country" /></label>
     <select name="mod-loc-rech" id="mod-loc-rech" class="form-control">
       
  <option selected="selected"></option>
@@ -524,21 +525,21 @@ $(document).ready(function(){
  
  <div class="form-row">
      <div class="form-group col-md-12">
-          <label >Subject (I can teach) *</label>
+          <label ><spring:message code="label.subject_teach" /> *</label>
           <select name="mod-subj" id="mod-subj" multiple class="form-control" required>
           
             
                <option selected="selected"></option>
-               <option>Quran Memorization</option>
-               <option>Quran Tajweed</option>
-               <option>Arabic Classes</option>
+               <option><spring:message code="label.opt1subject" /></option>
+               <option><spring:message code="label.opt2subject" /></option>
+               <option><spring:message code="label.opt3subject" /></option>
             
              
            </select>
          
      </div>
        <div class="form-group col-md-12">
-       <label for="">Spoken Languages</label>
+       <label for=""><spring:message code="label.spoken_lang" /></label>
        <select class="form-control" id="mod-language" name="mod-language"  multiple>
            <option selected></option>
          <option>Akan</option>
@@ -647,11 +648,11 @@ $(document).ready(function(){
 
   <div class="form-row">
  <div class="form-group col-md-12">
-       <label >About me</label>
+       <label ><spring:message code="label.about_me" /></label>
        <textarea class="form-control" name="mod-aboutme" id="mod-aboutme"></textarea>
     </div>
 <div class="form-group col-md-12">
-       <label for="">Time Zone</label>
+       <label for=""><spring:message code="label.timezone" /></label>
        <select class="form-control" id="mod-timezone" name="mod-timezone" >
            <option selected></option>
           <option value="(GMT -12:00) Eniwetok, Kwajalein">(GMT -12:00) Eniwetok, Kwajalein</option>
@@ -700,7 +701,7 @@ $(document).ready(function(){
     
   <div class="form-row">
        <div class="form-group col-md-12">
-       <label >Communication Media</label>       
+       <label ><spring:message code="label.com_media" /></label>       
        <select name="mod-com-media" id="mod-com-media" class="form-control" >          
               <option selected="selected"><option>
               <option>Hangout</option>
@@ -710,41 +711,41 @@ $(document).ready(function(){
         </select>
      </div>
       <div class="form-group col-md-12">
-       <label >Recitation Sample</label>
+       <label ><spring:message code="label.recitation" /></label>
        
        <input type="file" name="recitation" id="recitation"  accept="audio/*" />
           
      </div>    
        <div class="form-group col-md-12">
-       <label >Teaching preference</label>
+       <label ><spring:message code="label.teaching" /></label>
        
        <select name="mod-preference" id="mod-preference" class="form-control" >          
               <option selected="selected"><option>
-              <option>Audio only</option>
-               <option>Audio and video</option>
-               <option>Screen share</option>
+              <option><spring:message code="label.opt1learning" /></option>
+               <option><spring:message code="label.opt2learning" /></option>
+               <option><spring:message code="label.opt3learning" /></option>
            
            
         </select>
      </div>
      <div class="form-group col-md-12">
-       <label >Hourly rate</label>
+       <label ><spring:message code="label.hourly" /></label>
        <input class="form-control" name="mod-hourly" id="mod-hourly" />
     </div>
     </div>
 <div class="form-row">
   
     <div class="form-group col-md-12">
-       <label >Riwaya</label>
+       <label ><spring:message code="label.riwaya" /></label>
        <textarea class="form-control" name="mod-riwaya" id="mod-riwaya"></textarea>
     </div>
     
     <div class="form-group col-md-12">
-       <label >Certifications (Ijazat)</label>
+       <label ><spring:message code="label.certifications" /></label>
        <textarea class="form-control" name="mod-certif" id="mod-certif"></textarea>
     </div>
      <div class="form-group col-md-12">
-       <label >Previous experience</label>
+       <label ><spring:message code="label.experience" /></label>
        <textarea class="form-control" name="mod-previous-exp" id="mod-previous-exp"></textarea>
     </div>
     	

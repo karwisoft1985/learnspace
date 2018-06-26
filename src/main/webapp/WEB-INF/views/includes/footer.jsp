@@ -17,7 +17,7 @@
 												<img src="<%=request.getContextPath()%>/resources/images/logo/logo-dark.png" alt="footer logo">
 											</a>
 										</div>
-										<p style="font:400 30px/1.3 'Arizonia', Helvetica, sans-serif;"><I>&quot;And assuredly We have made the Qur'an easy to remember&quot;</I> Chap. 54:17</p>
+										<p style="font:400 30px/1.3 'Arizonia', Helvetica, sans-serif;"><I>&quot;<spring:message code="label.quran" />&quot;</I> Chap. 54:17</p>
 									<!-- 	<div class="social-icons social-icons--rounded">
 											<ul>
 												<li class="facebook"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
@@ -32,10 +32,10 @@
 									<div class="single-widget widget--support">
 										<h4 class="widget-title">Support</h4>
 										<ul>
-											<li><a href="#"  data-toggle="modal" data-target="#exampleModalabt">About us</a></li>
-											<li><a href="#" data-toggle="modal" data-target="#exampleModal2">Help Center</a></li>
-											<li><a href="#" data-toggle="modal" data-target="#exampleModalt">Terms of use</a></li>
-											<li><a href="#" data-toggle="modal" data-target="#exampleModal3">Privacy policy</a></li>
+											<li><a href="#"  data-toggle="modal" data-target="#exampleModalabt"><spring:message code="label.about_us" /></a></li>
+											<li><a href="#" data-toggle="modal" data-target="#exampleModal2"><spring:message code="label.help" /></a></li>
+											<li><a href="#" data-toggle="modal" data-target="#exampleModalt"><spring:message code="label.termsuse" /></a></li>
+											<li><a href="#" data-toggle="modal" data-target="#exampleModal3"><spring:message code="label.privacyp" /></a></li>
 										</ul>
 									</div><!-- //Single Widgets -->
 
@@ -70,11 +70,11 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
-								<p>Copyright &copy; quranspace.net, All rights Reverved, 2018</p>
+								<p><spring:message code="label.copyright" /> &copy; quranspace.net, <spring:message code="label.rights" />, 2018</p>
 							</div>
 							<div class="col-lg-6 col-md-6">
 								<div class="footer__payment-icons text-right">
-								<p>Powered by <a href="http://karwisoft.com" target="_blank">KARWISOFT</a></p>
+								<p><spring:message code="label.powered" /> <a href="http://karwisoft.com" target="_blank">KARWISOFT</a></p>
 								</div>
 							</div>
 						</div>
@@ -88,10 +88,10 @@
 				<div class="accountbox text-left">
 					<ul class="nav accountbox__filters" id="myTab" role="tablist">
 						<li>
-							<a class="active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+							<a class="active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><spring:message code="label.login" /></a>
 						</li>
 						<li>
-							<a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+							<a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><spring:message code="label.register" /></a>
 						</li>
 					</ul>
 					<div class="accountbox__inner tab-content" id="myTabContent">
@@ -496,22 +496,25 @@ Quran Space Team
 <form action="contact" method="POST">         
 <div class="row">
 
-     <label style="color:#fff;">Name</label>
-     <input type="text" class="form-control" id="namecontact" name="namecontact" placeholder="Name *" required />
+     <label style="color:#fff;"><spring:message code="label.name" /></label>
+     <spring:message code="label.name" var="labelname"></spring:message>
+      <input type="text" class="form-control" id="namecontact" name="namecontact" placeholder="${labelname } *" required />
 
 </div>
 
 <div class="row">
 
                <label style="color:#fff;">Email</label>
-               <input type="email" class="form-control" id="emailcontact" name="emailcontact" placeholder="Email *" required />
+               <spring:message code="label.email" var="labelemail"></spring:message>
+       			<input type="email" class="form-control" id="emailcontact" name="emailcontact" placeholder="${labelemail } *" required />
 
 </div>
 
 <div class="row">
 
-               <label style="color:#fff;">Subject</label>
-               <input type="text" class="form-control" id="subjectcontact" name="subjectcontact" placeholder="Subject *" required />
+               <label style="color:#fff;"><spring:message code="label.subject" /></label>
+               <spring:message code="label.subject" var="labelsubject"></spring:message>
+       		 <input type="text" class="form-control" id="subjectcontact" name="subjectcontact" placeholder="${labelsubject} *" required />
 </div>
 
 
@@ -524,7 +527,8 @@ Quran Space Team
  <br>
 <div class="row">
  
-  <input type="submit" value="SEND" class="btn brn-primary" style="float:right;" /><br>
+   <spring:message code="label.send" var="labelsend"></spring:message>
+ <input type="submit" value="${labelsend }" class="btn brn-primary" style="float:right;" /><br>
 
 </div>
 

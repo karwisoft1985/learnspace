@@ -30,38 +30,38 @@ if(document.getElementById("search").style.display == "none"){
   									<c:when test="${connexionstudent != 0}">
 								     <span class="dropdown">
                                           <button class="btn btn-secondary dropdown-toggle" type="button" style="padding:15px;font-size:16px;background:#1e385c;border:none;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Welcome ${ nom_Student } 
+                                            <spring:message code="label.welcome" /> ${ nom_Student } 
                                            </button>
                                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <c:choose>
   									<c:when test="${type == 'tutor'}">
-                                    <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_tutor">My Profile</a>
+                                    <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_tutor"><spring:message code="label.my_profile" /></a>
                                     </c:when>
                                         <c:when test="${type == 'student'}">
-                                    <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_student">My Profile</a>
+                                    <a class="dropdown-item" href="<%=request.getContextPath()%>/dashboard_student"><spring:message code="label.my_profile" /></a>
                                     </c:when>
                                     </c:choose>
-                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/deconnexion">Sign out</a>
+                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/deconnexion"><spring:message code="label.sign_out" /></a>
                                           </div>
                                        </span>
 								 </c:when>
  								 <c:when  test="${connexionstudent == 0}">
 								    <span class="dropdown">
                                           <button class="btn btn-secondary dropdown-toggle" type="button" style="padding:15px;font-size:16px;background:#1e385c;border:none;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Login 
+                                           <spring:message code="label.login" /> 
                                            </button>
                                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/authentification">STUDENT</a>
-                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/login">TUTOR</a>
+                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/authentification"><spring:message code="label.student" /></a>
+                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/login"><spring:message code="label.tutor" /></a>
                                           </div>
                                        </span>
 								      <span class="dropdown">
                                           <button class="btn btn-secondary dropdown-toggle" type="button" style="padding:15px;font-size:16px;background:#1e385c;border:none;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Create Account 
+                                            <spring:message code="label.create_account" /> 
                                            </button>
                                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/registration">STUDENT</a>
-                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/inscription">TUTOR</a>
+                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/registration"><spring:message code="label.student" /></a>
+                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/inscription"><spring:message code="label.tutor" /></a>
                                           </div>
                                        </span>
 								 </c:when>

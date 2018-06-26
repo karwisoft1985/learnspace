@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html class="no-js" lang="zxx">
@@ -45,7 +46,7 @@
 										<div id="login" class="bl_register" >
 										   
 										   <div class="bl_register_stud">
-										       <h3 style="color:#fff;text-transform:uppercase;">Forgot Password</h3>										       
+										       <h3 style="color:#fff;text-transform:uppercase;"><spring:message code="label.forgot" /></h3>										       
 										       <form  method="post" action="forgotpass">
 										       <c:if test="${not empty success}">
 		    <div class="alert alert-success" role="alert">
@@ -57,10 +58,12 @@
 		    </div>
 		</c:if>
                                                 <div class="form-group">
-                                                <label for="exampleInputEmail1" style="color:#fff;">Enter your email</label>
-                                                <input type="email" class="form-control" id="emailtutor" name="emailtutor" placeholder="Enter email" required/>
+                                                <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.enter_mail" /></label>
+                                                <spring:message code="label.enter_mail" var="labelentermail"></spring:message>
+       											<input type="email" class="form-control" id="emailtutor" name="emailtutor" placeholder="${labelentermail }" required/>
                                                 </div>
-                                                <input type="submit" value="Reset Password" class="btn btn-info"/>
+                                                <spring:message code="label.reset_psw" var="labelreset"></spring:message>
+                                                <input type="submit" value="${labelreset}" class="btn btn-info"/>
                                                 
                                                 </form>
 										   </div>

@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html class="no-js" lang="zxx">
@@ -49,7 +50,7 @@
 <div class="container">
 <div class="col-xs-10 col-md-offset-2">
 <div class="col-md-12">
-<h3>Student Registration form</h3>
+<h3><spring:message code="label.student_registration" /></h3>
        	
         <c:if test="${not empty success}">
 		    <div class="alert alert-success" role="alert">
@@ -65,28 +66,30 @@
   <div class="form-row">
   
     <div class="form-group col-md-6">
-       <label for="inputEmail4">Name <b style="color:red">*</b></label>
-       <input type="text" class="form-control" name="name" placeholder="Name" required/>
+       <label for="inputEmail4"><spring:message code="label.name" /> <b style="color:red">*</b></label>
+       <spring:message code="label.name" var="labelname"></spring:message>
+       <input type="text" class="form-control" name="name" placeholder="${labelname}" required/>
     </div>
     <div class="form-group col-md-6">
-       <label for="inputEmail4">Email Address <b style="color:red">*</b></label>
-       <input type="email" class="form-control" name="email" placeholder="Email" required>
+       <label for="inputEmail4"><spring:message code="label.email_address" /><b style="color:red">*</b></label>
+       <spring:message code="label.email" var="labelemail"></spring:message>
+       <input type="email" class="form-control" name="email" placeholder="${labelemail}" required>
     </div>
     </div>
   
   
 	<div class="form-row">
 	 <div class="form-group col-md-6">
-       <label for="">Gender</label>
+       <label for=""><spring:message code="label.gender" /></label>
        <select class="form-control" name="gender" >
-           <option>Man</option>
-           <option>Woman</option>
+           <option><spring:message code="label.opt1gender" /></option>
+           <option><spring:message code="label.opt2gender" /></option>
        </select>
     </div>
    <div class="form-group col-md-6">
-   <label for="exampleInputLanguage" style="color:#fff;">Spoken Languages</label>
+   <label for="exampleInputLanguage" style="color:#fff;"><spring:message code="label.spoken_lang" /></label>
    <select name="language" id="language" multiple class="form-control">
-     <option value="" selected>--Choose language--</option>
+     <option value="" selected>--<spring:message code="label.choose_lang" />--</option>
      <option>Akan</option>
                                                   <option>Amharic</option>
                                                   <option>Arabic</option>
@@ -192,9 +195,9 @@
 </div>
  <div class="form-row">   
     <div class="form-group col-md-6">
-    <label >Country</label>
+    <label ><spring:message code="label.country" /></label>
     <select name="location" id="location" class="form-control">
- <option value="" selected="selected">--Choose country--</option>
+ <option value="" selected="selected">--<spring:message code="label.choose_country" />--</option>
 <option value="Afganistan">Afghanistan</option>
 <option value="Albania">Albania</option>
 <option value="Algeria">Algeria</option>
@@ -445,12 +448,12 @@
 </select>
 </div>
    <div class="form-group col-md-6">
-          <label >Subject (I want to learn) <b style="color:red">*</b></label>
+          <label ><spring:message code="label.subject_learn" /> <b style="color:red">*</b></label>
           <select name="subject" multiple class="form-control" required >
-           <option value="" selected disabled>--Choose subject--</option>
-               <option>Quran Memorization</option>
-               <option>Quran Tajweed</option>
-               <option>Arabic Classes</option>
+           <option value="" selected disabled>--<spring:message code="label.choose_subject" />--</option>
+               <option><spring:message code="label.opt1subject" /></option>
+               <option><spring:message code="label.opt2subject" /></option>
+               <option><spring:message code="label.opt3subject" /></option>
            
            </select>
      </div> 
@@ -463,11 +466,12 @@
           <input type="checkbox" id="terms" name="terms" required/>
           </div>
           <div class="col-md-11">
-          <label >I have read and agreed to <a href="#" data-toggle="modal" data-target="#exampleModalt">the Terms of use</a> and <a href="#" data-toggle="modal" data-target="#exampleModal3">Privacy Policy</a></label>
+          <label ><spring:message code="label.have_read" /> <a href="#" data-toggle="modal" data-target="#exampleModalt"><spring:message code="label.terms" /></a> <spring:message code="label.and" /> <a href="#" data-toggle="modal" data-target="#exampleModal3"><spring:message code="label.privacy" /></a></label>
           </div>
           </div>
     </div>
-<input type="submit" class="btn btn-primary nextBtn btn-lg pull-right" value="CREATE"  />
+    <spring:message code="label.create" var="labelcreate"></spring:message>
+<input type="submit" class="btn btn-primary nextBtn btn-lg pull-right" value="${labelcreate}"  />
 <br>
 </form> 
 </div>
