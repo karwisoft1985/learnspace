@@ -37,6 +37,8 @@ import com.karwisoft.learnspace.beans.Tuto;
 import com.karwisoft.learnspace.beans.Messages;
 import com.karwisoft.learnspace.services.TutorServices;
 
+import java.util.Locale;
+
 @Controller
 public class TutorController {
 
@@ -75,7 +77,7 @@ public class TutorController {
 
 	 @RequestMapping(value = "/forgotpass" , method = RequestMethod.POST)
 	    public String forgotpass(Model model,@RequestParam String emailtutor,
-				 final RedirectAttributes redirectAttributes)
+				 Locale locale, final RedirectAttributes redirectAttributes)
 	    {
 		  SimpleMailMessage email = new SimpleMailMessage();
 	         
@@ -106,7 +108,11 @@ public class TutorController {
 	  		email.setText(message);	  		
 	  		mailSender.send(email);
      		}
-	  	redirectAttributes.addFlashAttribute("success", "Your password has been reset, please check your mailbox for your new password.");				 			
+if(locale.equals("fr")){
+redirectAttributes.addFlashAttribute("success", "Votre mot de passe a été réinitialisé, veuillez vérifier votre boîte email pour votre nouveau mot de passe.");				 			
+}else{
+redirectAttributes.addFlashAttribute("success", "Your password has been reset, please check your mailbox for your new password.");				 			
+	}
          return "redirect:/forgot_password";
 	    }
 	
@@ -222,7 +228,7 @@ public class TutorController {
 				 @RequestParam("gender") String gender ,
 				 @RequestParam("email") String email ,
 				 @RequestParam("sub1") String sub1,
-				 final RedirectAttributes redirectAttributes
+				 Locale locale, final RedirectAttributes redirectAttributes
 				 )
 		 {
 			 UUID uuid=UUID.randomUUID();
@@ -264,7 +270,11 @@ public class TutorController {
 					 );
 			 List<Tuto> tut=service_tutor.getTutoBymail(email);
 			 if(tut.size() != 0){
-			redirectAttributes.addFlashAttribute("warning", "Your email is already registered !");
+if(locale.equals("fr")){				 
+redirectAttributes.addFlashAttribute("warning", "Votre email est déjà enregistré!");
+}else{				 
+redirectAttributes.addFlashAttribute("warning", "Your email is already registered !");
+}
 			return "redirect:/login";
 			 }
 			 else{
@@ -297,7 +307,11 @@ public class TutorController {
 	  		
 	  		// sends the e-mail
 	  		  mailSender.send(mail);
-			 redirectAttributes.addFlashAttribute("success", "You have successfully registered! You will find your access on your mailbox!");			
+	  		if(locale.equals("fr")){				 
+ redirectAttributes.addFlashAttribute("success", "Votre inscription est faite avec succès! Vous trouverez sur votre boîte email votre login et mot de passe!");			
+	  		}else{				 
+ redirectAttributes.addFlashAttribute("success", "You have successfully registered! You will find your access on your mailbox!");			
+	  		}
 			 return "redirect:/inscription";
 		 }
 		 }
@@ -305,7 +319,8 @@ public class TutorController {
 		@RequestMapping(value="/profil_student/connexion_tutor2",method=RequestMethod.POST)
 		 public String cnxTutor2(HttpServletRequest request,Model model,
 				 @RequestParam("emailtut") String emailtut,	 @RequestParam("id") Integer id,
-				 @RequestParam("passwordtut") String passwordtut,RedirectAttributes redirectAttributes ,HttpSession session
+				 @RequestParam("passwordtut") String passwordtut,
+				 Locale locale, RedirectAttributes redirectAttributes ,HttpSession session
 		)
 		 {
 			byte[]   bytesEncoded = Base64.getEncoder().encode(passwordtut.getBytes());
@@ -313,8 +328,13 @@ public class TutorController {
 			List<Tuto> logins=service_tutor.getTutorByLogin(emailtut, psd);
 			if (logins.isEmpty())
 			{		
-				redirectAttributes.addFlashAttribute("error","Login or password is invalid!");
-				return "redirect:/profil_student/"+id;
+if(locale.equals("fr")){				 
+ redirectAttributes.addFlashAttribute("error","Email ou mot de passe incorrect!");
+}else{				 
+redirectAttributes.addFlashAttribute("error","Login or password is invalid!");
+}
+
+return "redirect:/profil_student/"+id;
 			}
 			else{
 				Integer idTutor = logins.get(0).getIdTutor();
@@ -332,7 +352,8 @@ public class TutorController {
 		@RequestMapping(value="/connexion_tutor",method=RequestMethod.POST)
 		 public String cnxTutor(HttpServletRequest request,Model model,
 				 @RequestParam("emailTutor") String emailTutor,
-				 @RequestParam("passwordTutor") String passwordTutor,RedirectAttributes redirectAttributes ,HttpSession session
+				 @RequestParam("passwordTutor") String passwordTutor,
+				 Locale locale, RedirectAttributes redirectAttributes ,HttpSession session
 		)
 		 {
 			byte[]   bytesEncoded = Base64.getEncoder().encode(passwordTutor.getBytes());
@@ -340,8 +361,12 @@ public class TutorController {
 			List<Tuto> logins=service_tutor.getTutorByLogin(emailTutor,psd);
 			if (logins.isEmpty())
 			{				
-				redirectAttributes.addFlashAttribute("indexmsg", "Login or password is invalid!");
-				return "redirect:/login";
+if(locale.equals("fr")){				 
+redirectAttributes.addFlashAttribute("indexmsg", "Email ou mot de passe incorrect!");
+}else{				 
+redirectAttributes.addFlashAttribute("indexmsg", "Login or password is invalid!");
+}
+return "redirect:/login";
 			}
 			else{
 				
@@ -408,7 +433,8 @@ public class TutorController {
 
 		@RequestMapping(value="/profil_tutor/sendmessage",method=RequestMethod.GET)
 		 public String sendmessagetutor(@RequestParam("emailTut") String email,@RequestParam("idTut") Integer idTut,@RequestParam("id_student") Integer id_student,
-				 @RequestParam("nom_Student") String nom_Student,@RequestParam("textmsg") String textmsg,final RedirectAttributes redirectAttributes)
+				 @RequestParam("nom_Student") String nom_Student,@RequestParam("textmsg") String textmsg,
+				 Locale locale, final RedirectAttributes redirectAttributes)
 		 {		
 			  List<Tuto> listTutor =  service_tutor.getTutorById(idTut);
 	    	  for(Iterator<Tuto> i = listTutor.iterator();i.hasNext();){
@@ -450,8 +476,13 @@ public class TutorController {
 				service_tutor.addmessage(mg);
 				
 	    	  }
-		redirectAttributes.addFlashAttribute("successsent", "Your message has been sent successfully!");			
-		return "redirect:/index";
+if(locale.equals("fr")){				 
+redirectAttributes.addFlashAttribute("successsent", "Votre message a été envoyé avec succès!");			
+}else{				 
+redirectAttributes.addFlashAttribute("successsent", "Your message has been sent successfully!");			
+}
+
+return "redirect:/index";
 		 }
 	
 		@RequestMapping(value = "/dashboard_tutor", method = RequestMethod.GET)

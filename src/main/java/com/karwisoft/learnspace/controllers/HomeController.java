@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Locale;
 
 
 /**
@@ -44,7 +45,7 @@ public class HomeController {
 	@RequestMapping(value = "/contact", method = RequestMethod.POST)
 	public String addcontact(@RequestParam(value="namecontact")  String nom, @RequestParam(value="emailcontact") String email,
 			@RequestParam(value="subjectcontact") String sujet,@RequestParam(value="messagecontact")  String message, 
-			final RedirectAttributes redirectAttributes) {
+			Locale locale, final RedirectAttributes redirectAttributes) {
 		
 
 		String recipientAddress = "info@quranspace.net";
@@ -60,8 +61,11 @@ public class HomeController {
 	  		mail.setSubject(subject);
 	  		mail.setText(msg);
 	  		mailSender.send(mail);
-	
-		  redirectAttributes.addFlashAttribute("successcontact", "Your message has been sent successfully!");  
+if(locale.equals("fr")){
+redirectAttributes.addFlashAttribute("successcontact", "Votre message a été envoyé avec succès!");  
+}else {
+redirectAttributes.addFlashAttribute("successcontact", "Your message has been sent successfully!");  
+}
 		  return "redirect:/index";
 		 
 	}
