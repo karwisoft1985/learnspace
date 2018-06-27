@@ -354,7 +354,7 @@ return "redirect:/index";
 		}
 		@RequestMapping(value = "/webservice_profil_student", method=RequestMethod.GET)
 	    @ResponseBody
-	    public  String webserviceGetStudentLoginById(HttpSession session) throws JSONException{
+	    public  String webserviceGetStudentLoginById(HttpSession session, Locale locale) throws JSONException{
 			  
 			Integer idStudent= (Integer) session.getAttribute("id_student");
 			
@@ -365,6 +365,8 @@ return "redirect:/index";
 	    		  
 	    	  Student item = i.next();
 	    	  JSONObject obj = new JSONObject();
+
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdStudent());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("email",item.getEmail());
@@ -463,13 +465,14 @@ return "redirect:/index";
 
 			@RequestMapping(value = "/profil_student/{id}/getStudentById", method=RequestMethod.GET)
 		    @ResponseBody
-		    public  String webserviceGetTutorById(@PathVariable("id") int idStudent) throws JSONException{
+		    public  String webserviceGetTutorById(@PathVariable("id") int idStudent, Locale locale) throws JSONException{
 				
 				JSONArray array = new JSONArray(); 
 		    	List<Student> listStudent =  service_student.getStudentById(idStudent);
 		    	  for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){
 		    	  Student item = i.next();
 		    	  JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 		  		  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 		  		  obj.put("email",item.getEmail());

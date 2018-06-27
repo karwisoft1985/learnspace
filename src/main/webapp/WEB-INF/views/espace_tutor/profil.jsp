@@ -19,8 +19,12 @@ $(document).ready(function(){
 		contenuHtml1+='<form action="uploadphototutor" method="POST" enctype="multipart/form-data">';
 		contenuHtml1+='<input type="hidden" value="'+donnees[0].id+'" name="idimage" />';
 		contenuHtml1+='<input type="file" name="image" required/><br>';
-        contenuHtml1+='<input type="submit" value="Send" class="btn btn-info" style="width:220px" style="float:left;"/>';
-		contenuHtml1+='</form>';
+		if(donnees[0].lang=="fr"){ 
+	    contenuHtml1+='<input type="submit" value="Envoyer" class="btn btn-info" style="width:220px" style="float:left;"/>';
+		}else{
+		contenuHtml1+='<input type="submit" value="Send" class="btn btn-info" style="width:220px" style="float:left;"/>';
+		}
+	    contenuHtml1+='</form>';
 		
 		contenuHtml1+='</div>';
 		contenuHtml1+='</div>';
@@ -31,7 +35,6 @@ $(document).ready(function(){
 		contenuHtml+='<br><br><br>';
 		contenuHtml+='<div class="container">';
 		contenuHtml+='<div class="row">';
-		
 		contenuHtml+='<div class="col order-12">';
 		contenuHtml+='<h2>'+donnees[0].name+'</h2>';
 		contenuHtml+='</div>';
@@ -39,64 +42,129 @@ $(document).ready(function(){
 		contenuHtml+='<br>';
 		contenuHtml+='<div class="row">';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Age </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Âge';}
+         else{ 
+         contenuHtml+='Age';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].age+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Gender </strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Sexe';}
+         else{ 
+         contenuHtml+='Gender';}
+         contenuHtml+=' </strong>';
          contenuHtml+='<br>';
          contenuHtml+='<p>'+donnees[0].gender+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong>Country </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Pays';}
+         else{ 
+         contenuHtml+='Country';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].location+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
- 		contenuHtml+='<strong>Hourly rate</strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Taux horaire';}
+         else{ 
+         contenuHtml+='Hourly rate';}
+         contenuHtml+=' </strong><br>';
  		contenuHtml+='<h1 class="display-6" style="color:#bf470d;font-size:40px;">'+donnees[0].hourly+'</h1>';
  		contenuHtml+='</div>';
          contenuHtml+='</div>';
  		contenuHtml+='<div class="row">';
         contenuHtml+='<div class="col">';
-        contenuHtml+='<strong> Email address</strong><br>';
+        contenuHtml+='<strong>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+='Adresse e-mail';}
+        else{ 
+        contenuHtml+='Email address';}
+        contenuHtml+=' </strong> <br>';
         contenuHtml+='<p>'+donnees[0].email+'</p>';
         contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Spoken Languages </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Langues parlées';}
+         else{ 
+         contenuHtml+=' Spoken Languages';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].language+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong>Time zone</strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Fuseau horaire';}
+         else{ 
+         contenuHtml+=' Time zone';}
+         contenuHtml+='</strong><br>';
          contenuHtml+='<p>'+donnees[0].timezone+'<p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong>Membership start date </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Date d\'adhésion';}
+         else{ 
+         contenuHtml+='Date of membership';}
+         contenuHtml+='</strong><br>';
          contenuHtml+='<p>'+donnees[0].startdate+'<p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';
  		contenuHtml+='<div class="row">';
         contenuHtml+='<div class="col">';
-        contenuHtml+='<label><strong>Subjects (I can teach) </strong> </label>';
+        contenuHtml+='<label><strong>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+='Sujets (je peux enseigner)';}
+        else{ 
+        contenuHtml+='Subject (I can teach)';}
+        contenuHtml+=' </strong> </label>';
         contenuHtml+='<p>'+donnees[0].subject_icanteach+'</p>';
         contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong>Teaching preferences</strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+          contenuHtml+='Préférences d\'enseignement';}
+          else{ 
+          contenuHtml+=' Teaching preferences';}
+          contenuHtml+='</strong><br>';
          contenuHtml+='<p>'+donnees[0].teach_preference+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Communication media </strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Médias de communication';}
+         else{ 
+         contenuHtml+=' Communication media';}
+         contenuHtml+=' </strong>';
          contenuHtml+='<p>'+donnees[0].media_cam+'</p>';
          contenuHtml+='</div>';         
          contenuHtml+='</div>';
 		contenuHtml+='<div class="row">';
 		contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<label><strong>About me </strong></label>';
+        contenuHtml+='<label><strong>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+='À propos de moi';}
+        else{ 
+        contenuHtml+='About me';}
+        contenuHtml+='</strong></label>';
          contenuHtml+='<p>'+donnees[0].about+'</p>';
 		 contenuHtml+='</div>';
 		 contenuHtml+='</div>';
 			contenuHtml+='<div class="row">';
 			contenuHtml+='<div class="col order-12">';
-	         contenuHtml+='<label><strong>Recitation sample </strong></label>';
+	         contenuHtml+='<label><strong>';
+	         if(donnees[0].lang=="fr"){ 
+	         contenuHtml+='Exemple de récitation';}
+	         else{ 
+	         contenuHtml+='Recitation sample';}
+	         contenuHtml+='</strong></label>';
 	         if(donnees[0].recitation != ""){
 	         contenuHtml+='<audio controls>';
 	        contenuHtml+=' <source src="resources/images/tutor/recitation/'+donnees[0].recitation+'" type="audio/ogg">';
@@ -120,7 +188,12 @@ $(document).ready(function(){
          contenuHtml+='</div>';
 		 contenuHtml+='<div class="row">';
 		 contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Previous experiences</strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Expériences précedentes';}
+         else{ 
+         contenuHtml+='Previous experiences';}
+         contenuHtml+='</strong>';
          contenuHtml+='<p>'+donnees[0].preview_experience+'</p>';
          contenuHtml+='</div>';   
          contenuHtml+='</div>';   

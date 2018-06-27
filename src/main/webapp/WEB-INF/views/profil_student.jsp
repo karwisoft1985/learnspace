@@ -27,47 +27,92 @@ $(document).ready(function(){
 		contenuHtml+='</div><br>';
  		contenuHtml+='<div class="row">';
  		contenuHtml+='<div class="col order-12">';
-          contenuHtml+='<label><strong>About me </strong></label>';
+        contenuHtml+='<label><strong>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+='À propos';}
+        else{ 
+        contenuHtml+='About';}
+        contenuHtml+='</strong></label>';
           contenuHtml+='<p>'+donnees[0].about+'</p>';
  		 contenuHtml+='</div>';
  		 contenuHtml+='</div>';
          contenuHtml+='<div class="row">';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Date of birth </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Date de naissance';}
+         else{ 
+         contenuHtml+='Date of birth';}
+         contenuHtml+='</strong><br>';
          contenuHtml+='<p>'+donnees[0].birthdate+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Gender </strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Sexe';}
+         else{ 
+         contenuHtml+='Gender';}
+         contenuHtml+=' </strong>';
          contenuHtml+='<br>';
          contenuHtml+='<p>'+donnees[0].gender+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong>Country </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Pays';}
+         else{ 
+         contenuHtml+='Country';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].location+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong>Learning preferences </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Préférences d\'apprentissage';}
+         else{ 
+         contenuHtml+='Learning preferences';}
+         contenuHtml+='</strong><br>';
          contenuHtml+='<p>'+donnees[0].learn_preference+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';	
          contenuHtml+='<div class="row">';
          contenuHtml+='<br><br>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Spoken Languages </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Langues parlées';}
+         else{ 
+         contenuHtml+=' Spoken Languages';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].language+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong>Time zone</strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Fuseau horaire';}
+         else{ 
+         contenuHtml+=' Time zone';}
+         contenuHtml+='</strong><br>';
          contenuHtml+='<p>'+donnees[0].timezone+'<p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-1">';
-         contenuHtml+='<strong> Communication media</strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Médias de communication';}
+         else{ 
+         contenuHtml+=' Communication media';}
+         contenuHtml+=' </strong>';
          contenuHtml+='<p>'+donnees[0].communication+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';
 		contenuHtml+='<div class="row">';
         contenuHtml+='<div class="col">';
-        contenuHtml+='<label><strong>Subjects (I want to learn) </strong> </label>';
+        contenuHtml+='<label><strong>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+='Sujets (je veux apprendre)';}
+        else{ 
+        contenuHtml+='Subject (I want to learn)';}
+        contenuHtml+=' </strong> </label>';
         contenuHtml+='<p>';
         contenuHtml+=''+donnees[0].subject+'';
         contenuHtml+='</p>';
@@ -75,7 +120,12 @@ $(document).ready(function(){
          contenuHtml+='</div>';
          contenuHtml+='<div class="row">';
 		 contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong> Riwaya to learn </strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Riwaya à apprendre';}
+         else{ 
+         contenuHtml+=' Riwaya to learn';}
+         contenuHtml+=' </strong>';
          contenuHtml+='<p>'+donnees[0].riwaya+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';

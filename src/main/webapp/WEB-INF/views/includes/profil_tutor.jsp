@@ -25,7 +25,12 @@ $(document).ready(function(){
 		contenuHtml+='<img src="../resources/images/tutor/'+donnees[0].picture+'" width="200px" height="200px" style="border-radius:100%;" />';
 		contenuHtml+='</div>';
 		contenuHtml+='<div class="col order-1">';
-		contenuHtml+='</label> <strong>Hourly rate</strong></label>';
+		contenuHtml+='<label><strong>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+='Taux horaire';}
+        else{ 
+        contenuHtml+='Hourly rate';}
+        contenuHtml+=' </strong></label>';
 		contenuHtml+='<h1 class="display-6" style="color:#bf470d;font-size:40px;">'+donnees[0].hourly+'</h1>';
 		contenuHtml+='</div>';
         contenuHtml+='</div>';
@@ -33,13 +38,23 @@ $(document).ready(function(){
 		contenuHtml+='<div class="row">';
 		contenuHtml+='<br><br>';
 		contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<label><strong>About : </strong></label>';
+        contenuHtml+='<label><strong>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+='À propos';}
+        else{ 
+        contenuHtml+='About';}
+        contenuHtml+='</strong></label>';
          contenuHtml+='<p>';
          contenuHtml+=''+donnees[0].about+'';
          contenuHtml+='</p>';
 		 contenuHtml+='</div>';
          contenuHtml+='<div class="col order-1">';
-         contenuHtml+='<label><strong>Subjects: </strong> </label>';
+         contenuHtml+='<label><strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Sujets';}
+         else{ 
+         contenuHtml+='Subjects';}
+         contenuHtml+='</strong></label>';
          contenuHtml+='<p>';
          contenuHtml+=''+donnees[0].subject_icanteach+'';
          contenuHtml+='</p>';
@@ -49,16 +64,31 @@ $(document).ready(function(){
 		   
          contenuHtml+='<div class="row">';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Age </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Âge';}
+         else{ 
+         contenuHtml+='Age';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].age+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong> Gender </strong>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Sexe';}
+         else{ 
+         contenuHtml+='Gender';}
+         contenuHtml+=' </strong>';
          contenuHtml+='<br>';
          contenuHtml+='<p>'+donnees[0].gender+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong> Spoken Languages </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Langues parlées';}
+         else{ 
+         contenuHtml+=' Spoken Languages';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].language+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';
@@ -66,17 +96,32 @@ $(document).ready(function(){
          contenuHtml+='<div class="row">';
          contenuHtml+='<br><br>';
          contenuHtml+='<div class="col">';
-         contenuHtml+='<strong>Location </strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Pays';}
+         else{ 
+         contenuHtml+='Country';}
+         contenuHtml+=' </strong><br>';
          contenuHtml+='<p>'+donnees[0].location+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong>Time zone</strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Fuseau horaire';}
+         else{ 
+         contenuHtml+=' Time zone';}
+         contenuHtml+='</strong><br>';
          contenuHtml+='<p>'+donnees[0].timezone+'<p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="row">';
 		 contenuHtml+='<div class="col">';
-         contenuHtml+='<strong> Recitation Sample</strong><br>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Exemple de récitation';}
+         else{ 
+         contenuHtml+='Recitation sample';}
+         contenuHtml+='</strong></br>';
          contenuHtml+='<audio controls>';
 	     contenuHtml+=' <source src="resources/images/tutor/recitation/'+donnees[0].recitation+'" type="audio/ogg">';
 	     contenuHtml+=' <source src="resources/images/tutor/recitation/'+donnees[0].recitation+'" type="audio/mpeg">';
@@ -84,15 +129,22 @@ $(document).ready(function(){
 	     contenuHtml+='</audio>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong>Teaching preferences (audio only, audio and video, screen share) </strong><br>';
-         contenuHtml+='<p>Audio and Video</p>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+          contenuHtml+='Préférences d\'enseignement';}
+          else{ 
+          contenuHtml+=' Teaching preferences';}
+          contenuHtml+='</strong><br>';
+         contenuHtml+='<p>'+donnees[0].teach_preference+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-1">';
-         contenuHtml+='<strong> Communication media (hangout, Skype, etc.) </strong>';
-         contenuHtml+='<ul>';
-         contenuHtml+='<li>PSEUDO SKYPE : flen14.tutor </li>';
-         contenuHtml+='<li>PSEUDO HANGOUT : flen14.tutor </li>';
-         contenuHtml+='</ul>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+         contenuHtml+='Médias de communication';}
+         else{ 
+         contenuHtml+=' Communication media';}
+         contenuHtml+=' </strong>';
+         contenuHtml+='<p>'+donnees[0].media_cam+'</p>';
          contenuHtml+='</div>';
            
          contenuHtml+='</div>';
@@ -102,15 +154,20 @@ $(document).ready(function(){
 		 
          contenuHtml+='<div class="col">';
          contenuHtml+='<strong> Riwaya </strong>';
-         contenuHtml+='<p>------</p>';
+         contenuHtml+='<p>'+donnees[0].riwaya+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong> Verified subjects </strong>';
-         contenuHtml+='<p>------</p>';
+         contenuHtml+='<strong>';
+         if(donnees[0].lang=="fr"){ 
+          contenuHtml+='Sujets vérifiés';}
+          else{ 
+          contenuHtml+='Verified subjects';}
+          contenuHtml+='</strong><br>';
+         contenuHtml+='<p>'+donnees[0].subject_verif+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='<div class="col order-1">';
          contenuHtml+='<strong> Certifications (Ijzazat) </strong>';
-         contenuHtml+='<p>------</p>';
+         contenuHtml+='<p>'+donnees[0].certification+'</p>';
          contenuHtml+='</div>';
          
          contenuHtml+='</div>';

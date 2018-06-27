@@ -499,7 +499,7 @@ return "redirect:/index";
 		
 		@RequestMapping(value = "/webservice_profil_dashboard_tutor", method=RequestMethod.GET)
 	    @ResponseBody
-	    public  String webserviceGetTutorLoginById(HttpSession session) throws JSONException{
+	    public  String webserviceGetTutorLoginById(HttpSession session, Locale locale) throws JSONException{
 			  
 			Integer idTutor= (Integer) session.getAttribute("id_tutor");
 			
@@ -510,6 +510,7 @@ return "redirect:/index";
 	    		  
 	    	  Tuto item = i.next();
 	    	  JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("email",item.getEmail());
