@@ -235,7 +235,7 @@ public class TutorDaoImp implements TutorDao{
         String sbj= "%" + subject + "%";
 	     query.setParameter("actif", actif);
         query.setParameter("subject",sbj);
-        query.setParameter("location",lg);
+        query.setParameter("language",lg);
         List<Tuto> resps = (List<Tuto>) query.list();
         session.close();
         return resps;
