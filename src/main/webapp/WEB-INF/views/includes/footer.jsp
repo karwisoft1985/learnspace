@@ -505,8 +505,7 @@ Quran Space Team
 <div class="row">
 
                <label style="color:#fff;">Email</label>
-               <spring:message code="label.email" var="labelemail"></spring:message>
-       			<input type="email" class="form-control" id="emailcontact" name="emailcontact" placeholder="${labelemail } *" required />
+             <input type="email" class="form-control" id="emailcontact" name="emailcontact" placeholder="Email *" required />
 
 </div>
 

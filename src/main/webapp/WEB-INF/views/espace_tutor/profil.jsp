@@ -751,8 +751,8 @@ $(document).ready(function(){
     	
    </div>
 
- 
-   <input type="submit" class="btn btn-primary" value="Update Profile" />
+ <spring:message code="label.update_profile" var="labelupdate_profile"></spring:message>           
+   <input type="submit" class="btn btn-primary" value="${labelupdate_profile }" />
           
    </form> 
    

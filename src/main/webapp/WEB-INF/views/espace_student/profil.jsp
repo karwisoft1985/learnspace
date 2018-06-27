@@ -709,7 +709,8 @@ $(document).ready(function(){
  </div>
 
       <div class="modal-footer">
-          <input type="submit" value="save" class="btn btn-primary" />
+          <spring:message code="label.save" var="labelsave"></spring:message> 
+          <input type="submit" value="${labelsave }" class="btn btn-primary" />
       </div>
 
 </form> 

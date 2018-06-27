@@ -72,8 +72,7 @@
     </div>
     <div class="form-group col-md-6">
        <label for="inputEmail4"><spring:message code="label.email_address" /><b style="color:red">*</b></label>
-       <spring:message code="label.email" var="labelemail"></spring:message>
-       <input type="email" class="form-control" name="email" placeholder="${labelemail}" required>
+       <input type="email" class="form-control" name="email" placeholder="Email" required>
     </div>
     </div>
   

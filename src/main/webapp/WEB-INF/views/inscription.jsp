@@ -75,8 +75,7 @@
     </div>
        <div class="form-group col-md-6">
        <label><spring:message code="label.email_address" /><b style="color:red">*</b></label>
-        <spring:message code="label.email" var="labelemail"></spring:message>
-       <input type="text" class="form-control" name="email" placeholder="${labelemail}" required />
+       <input type="text" class="form-control" name="email" placeholder="Email" required />
     </div>
     </div>
       <div class="form-row">
@@ -453,7 +452,7 @@
 </div>
      <div class="form-group col-md-6">
     
-          <label ><spring:message code="label.subject_teach" />Subject (I can teach)  <b style="color:red">*</b></label>
+          <label ><spring:message code="label.subject_teach" /><b style="color:red">*</b></label>
           <select name="sub1" multiple class="form-control" required >
           <option selected disabled>--<spring:message code="label.choose_subject" />--</option>
                <option><spring:message code="label.opt1subject" /></option>
