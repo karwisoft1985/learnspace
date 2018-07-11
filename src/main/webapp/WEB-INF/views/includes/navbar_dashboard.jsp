@@ -23,6 +23,19 @@
                                  </div>
                                  </div></div> 
 								 </a>
+								 
+								 <a href="#"> <div class="tutor">
+								  <div class="dropdown show"   >
+								  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff;">
+                                   <i class="fa fa-globe"></i> <spring:message code="label.lg" />
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="<%=request.getContextPath()%>/?locale=en">English</a>
+                                 <a class="dropdown-item" href="<%=request.getContextPath()%>/?locale=fr">Français</a>
+                                 </div>
+                                 </div></div> 
+								 </a>
+								 
 								</ul>
 								
 							</div>

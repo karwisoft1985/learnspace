@@ -87,7 +87,12 @@
                        contenuHtml+='<figcaption class="team-member__content">';
                        contenuHtml+='<h3>'+donnees[i].name+'</h3>';
                        contenuHtml+='<h5>'+donnees[i].hourly+'</h5>';
-                       contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">View Profile</button></a>';
+                       contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">';
+                       if(donnees[0].lang=="fr"){ 
+                       contenuHtml+='Voir le profil';}
+                       else{ 
+                       contenuHtml+='View Profile';}                       
+                       contenuHtml+='</button></a>';
                        contenuHtml+='</figcaption>';
                        contenuHtml+='</figure>';
                        contenuHtml+='</div>';
@@ -110,7 +115,12 @@
             contenuHtml+='<figcaption class="team-member__content">';
             contenuHtml+='<h3>'+donnees[i].name+'</h3>';
             contenuHtml+='<h5>'+donnees[i].hourly+'</h5>';
-            contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">View Profile</button></a>';
+            contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">';
+            if(donnees[0].lang=="fr"){ 
+            contenuHtml+='Voir le profil';}
+            else{ 
+            contenuHtml+='View Profile';}                                      
+            contenuHtml+='</button></a>';
             contenuHtml+='</figcaption>';
             contenuHtml+='</figure>';
             contenuHtml+='</div>';
@@ -120,7 +130,11 @@
   	  contenuHtml1+='<br><br>';
   	contenuHtml1+='<div id="" style="text-align:center;">';
   	contenuHtml1+='<a href="javascript:listtutorsAll();" class="btn btn-primary" style="padding:20px;">';
-  		contenuHtml1+='Load More</a></div>';
+    if(donnees[0].lang=="fr"){ 
+        contenuHtml1+='Charger plus';}
+        else{ 
+        contenuHtml1+='Load More';} 	
+  	contenuHtml1+='</a></div>';
         }
     	else{
           	 contenuHtml+='<div class="row">';
@@ -139,7 +153,12 @@
              contenuHtml+='<figcaption class="team-member__content">';
              contenuHtml+='<h3>'+donnees[i].name+'</h3>';
              contenuHtml+='<h5>'+donnees[i].hourly+'</h5>';
-             contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">View Profile</button></a>';
+             contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">';
+             if(donnees[0].lang=="fr"){ 
+              contenuHtml+='Voir le profil';}
+              else{ 
+              contenuHtml+='View Profile';} 
+             contenuHtml+='</button></a>';
              contenuHtml+='</figcaption>';
              contenuHtml+='</figure>';
              contenuHtml+='</div>';	
@@ -148,7 +167,12 @@
     	}
         }
         else{
-        	contenuHtml+='<br><h4>No tutor with these criteria</h4><br>';	
+        	contenuHtml+='<br><h4>';
+        	if(donnees[0].lang=="fr"){ 
+            contenuHtml+='Aucun tuteur trouvé avec ces critères';}
+            else{ 
+            contenuHtml+='No tutor with these criteria';} 
+        	contenuHtml+='</h4><br>';	
         }
            contenuHtml+='</div>';
            document.getElementById("search_tutors").innerHTML = contenuHtml;

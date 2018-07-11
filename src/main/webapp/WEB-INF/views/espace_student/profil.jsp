@@ -33,7 +33,12 @@ $(document).ready(function(){
 		contenuHtml1+='</div>';
 		
 		var contenuHtml='<br><br>';
-		contenuHtml+='<button type="button" class="btn btn-warning" style="color:#fff;font-weight:bold;float:right;" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil" style="color:#fff"></i> UPDATE MY PROFILE </button>';
+		contenuHtml+='<button type="button" class="btn btn-warning" style="color:#fff;font-weight:bold;float:right;" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil" style="color:#fff"></i>';
+        if(donnees[0].lang=="fr"){ 
+        contenuHtml+=' MODIFIER MON PROFIL';}
+        else{ 
+       contenuHtml+=' UPDATE MY PROFILE';}
+        contenuHtml+='</button>';
 		contenuHtml+='<br><br><br>';
 		contenuHtml+='<div class="container">';
 		contenuHtml+='<div class="row">';

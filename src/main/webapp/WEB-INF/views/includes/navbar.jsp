@@ -66,6 +66,15 @@ if(document.getElementById("search").style.display == "none"){
                                        </span>
 								 </c:when>
 								 </c:choose>
+								  <span class="dropdown">
+                                          <button class="btn btn-secondary dropdown-toggle" type="button" style="padding:15px;font-size:16px;background:#1e385c;border:none;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <spring:message code="label.lg" /> 
+                                           </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/?locale=en">English</a>
+                                              <a class="dropdown-item" href="<%=request.getContextPath()%>/?locale=fr">Français</a>
+                                          </div>
+                                       </span>
 								</ul>
 							</div>
 							

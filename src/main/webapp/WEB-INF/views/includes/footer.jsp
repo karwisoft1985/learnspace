@@ -493,7 +493,7 @@ Quran Space Team
    
 <div class="col-md-12">
  
-<form action="contact" method="POST">         
+<form action="contact"  id="formcontact" method="POST">         
 <div class="row">
 
      <label style="color:#fff;"><spring:message code="label.name" /></label>
@@ -543,11 +543,16 @@ Quran Space Team
 
 
 		<!-- JS Files -->
-		<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery-3.2.1.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/jquery.captcha.basic.min.js"></script>		
 		<script src="<%=request.getContextPath()%>/resources/js/popper.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/plugins.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/active.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/scripts.js"></script>
+	<script>
+$(document).ready(function(){
+$('#formcontact').captcha();
+});
+</script>
 	</body>
 </html>

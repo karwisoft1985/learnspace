@@ -499,7 +499,7 @@ return "redirect:/index";
 			
 			@RequestMapping(value = "/liststudents", method=RequestMethod.GET)
 		    @ResponseBody
-		    public  String liststudents() throws JSONException{
+		    public  String liststudents(Locale locale) throws JSONException{
 				
 				JSONArray array = new JSONArray(); 
 		    	List<Student> listStudent =  service_student.getStudents();
@@ -507,6 +507,7 @@ return "redirect:/index";
 		    	  
 		    		Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -530,13 +531,15 @@ return "redirect:/index";
 		    public  String webserviceListSearchTutorsel(
 		    		@PathVariable("subject") String subject ,
 		    		@PathVariable("location") String location ,
-		    		@PathVariable("language") String language 
+		    		@PathVariable("language") String language ,
+		    		Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereel(subject, language, location);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -560,13 +563,14 @@ return "redirect:/index";
 		    public  String webserviceListSearchstudentsel(
 		    		@PathVariable("gender") String gender ,
 		    		@PathVariable("location") String location ,
-		    		@PathVariable("language") String language 
+		    		@PathVariable("language") String language , Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereses(gender, language, location);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -590,13 +594,14 @@ return "redirect:/index";
 		    public  String webserviceListSearchstudentselo(
 		    		@PathVariable("gender") String gender ,
 		    		@PathVariable("subject") String subject ,
-		    		@PathVariable("language") String language 
+		    		@PathVariable("language") String language , Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereselo(gender, language, subject);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -619,13 +624,14 @@ return "redirect:/index";
 		    public  String webserviceListsearchstudentselg(
 		    		@PathVariable("gender") String gender ,
 		    		@PathVariable("subject") String subject ,
-		    		@PathVariable("location") String location 
+		    		@PathVariable("location") String location , Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereselg(gender, subject, location);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -647,13 +653,14 @@ return "redirect:/index";
 		    @ResponseBody
 		    public  String webserviceListsearchstudentsegs(
 		    		@PathVariable("location") String location,
-		    		@PathVariable("language") String language
+		    		@PathVariable("language") String language, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCriteresegs(location,language);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -676,13 +683,14 @@ return "redirect:/index";
 		    @ResponseBody
 		    public  String webserviceListsearchstudentseslo(
 		    		@PathVariable("gender") String gender,
-		    		@PathVariable("language") String language
+		    		@PathVariable("language") String language, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereseslo(gender,language);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -705,13 +713,14 @@ return "redirect:/index";
 		    @ResponseBody
 		    public  String webserviceListsearchstudentselol(
 		    		@PathVariable("gender") String gender,
-		    		@PathVariable("subject") String subject
+		    		@PathVariable("subject") String subject, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereselol(gender,subject);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -734,13 +743,14 @@ return "redirect:/index";
 		    @ResponseBody
 		    public  String webserviceListsearchstudentselg(
 		    		@PathVariable("gender") String gender,
-		    		@PathVariable("location") String location
+		    		@PathVariable("location") String location, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereselg(gender,location);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -763,13 +773,14 @@ return "redirect:/index";
 		    @ResponseBody
 		    public  String webserviceListsearchstudentseglg(
 		    		@PathVariable("subject") String subject,
-		    		@PathVariable("location") String location
+		    		@PathVariable("location") String location, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereseglg(subject,location);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -792,13 +803,14 @@ return "redirect:/index";
 		    @ResponseBody
 		    public  String webserviceListsearchstudentseglo(
 		    		@PathVariable("subject") String subject,
-		    		@PathVariable("language") String language
+		    		@PathVariable("language") String language, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereseglo(subject,language);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -820,13 +832,14 @@ return "redirect:/index";
 			@RequestMapping(value = "/searchstudentsg/{gender}", method=RequestMethod.GET)
 		    @ResponseBody
 		    public  String webserviceListsearchstudentsg(
-		    		@PathVariable("gender") String gender
+		    		@PathVariable("gender") String gender, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCriteresg(gender);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -848,13 +861,14 @@ return "redirect:/index";
 			@RequestMapping(value = "/searchstudentssub/{subject}", method=RequestMethod.GET)
 		    @ResponseBody
 		    public  String webserviceListsearchstudentsb(
-		    		@PathVariable("subject") String subject
+		    		@PathVariable("subject") String subject, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCriteresub(subject);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -876,13 +890,14 @@ return "redirect:/index";
 			@RequestMapping(value = "/searchstudentslo/{location}", method=RequestMethod.GET)
 		    @ResponseBody
 		    public  String webserviceListsearchstudentslo(
-		    		@PathVariable("location") String location
+		    		@PathVariable("location") String location, Locale locale
 					) throws JSONException{
 				JSONArray array = new JSONArray();
 				List<Student> listStudent =  service_student.getStudentByCritereslo(location);
 				for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 		    	  Student item = i.next();
 		  	      JSONObject obj = new JSONObject();
+		  		  obj.put("lang",locale);
 				  obj.put("id",item.getIdStudent());
 		  		  obj.put("name",item.getName());
 				  obj.put("picture",item.getPicture());
@@ -904,13 +919,14 @@ return "redirect:/index";
 @RequestMapping(value = "/searchstudentslg/{language}", method=RequestMethod.GET)
 @ResponseBody
 public  String webserviceListsearchstudentslg(
-	@PathVariable("language") String language
+	@PathVariable("language") String language, Locale locale
 	) throws JSONException{
 JSONArray array = new JSONArray();
 List<Student> listStudent =  service_student.getStudentByCritereslg(language);
 for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
   Student item = i.next();
     JSONObject obj = new JSONObject();
+	  obj.put("lang",locale);
   obj.put("id",item.getIdStudent());
 	  obj.put("name",item.getName());
   obj.put("picture",item.getPicture());
@@ -935,13 +951,14 @@ public  String webserviceListSearchStudents(
 		@PathVariable("gender") String gender ,
 		@PathVariable("subject") String subject ,
 		@PathVariable("location") String location ,
-		@PathVariable("language") String language 
+		@PathVariable("language") String language , Locale locale
 		) throws JSONException{
 	JSONArray array = new JSONArray();
 	List<Student> listStudent =  service_student.getStudentByCriteres(gender, subject, location, language);
 	for(Iterator<Student> i = listStudent.iterator(); i.hasNext(); ){    	  
 	  Student item = i.next();
 	      JSONObject obj = new JSONObject();
+  		  obj.put("lang",locale);
 	  obj.put("id",item.getIdStudent());
 		  obj.put("name",item.getName());
 	  obj.put("picture",item.getPicture());

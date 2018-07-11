@@ -397,7 +397,7 @@ return "redirect:/login";
 		
 		@RequestMapping(value = "/listtutors", method=RequestMethod.GET)
 	    @ResponseBody
-	    public  String webserviceListOrdreMenuByEmplacement() throws JSONException{
+	    public  String webserviceListOrdreMenuByEmplacement(Locale locale) throws JSONException{
 			
 			JSONArray array = new JSONArray(); 
 	    	List<Tuto> listTutor =  service_tutor.getTutor();
@@ -405,6 +405,7 @@ return "redirect:/login";
 	    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+			  obj.put("lang",locale);
 			  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -584,13 +585,14 @@ return "redirect:/index";
 	    public  String webserviceListSearchTutorsel(
 	    		@PathVariable("subject") String subject ,
 	    		@PathVariable("location") String location ,
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language,Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereel(subject, language, location);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang", locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -620,13 +622,15 @@ return "redirect:/index";
 	    public  String webserviceListSearchTutorses(
 	    		@PathVariable("gender") String gender ,
 	    		@PathVariable("location") String location ,
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCriterees(gender, language, location);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -656,13 +660,15 @@ return "redirect:/index";
 	    public  String webserviceListSearchTutorselo(
 	    		@PathVariable("gender") String gender ,
 	    		@PathVariable("subject") String subject ,
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereelo(gender, subject, language);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -692,13 +698,15 @@ return "redirect:/index";
 	    public  String webserviceListSearchTutorselg(
 	    		@PathVariable("gender") String gender ,
 	    		@PathVariable("subject") String subject ,
-	    		@PathVariable("location") String location 
+	    		@PathVariable("location") String location ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereelg(gender, subject, location);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -727,13 +735,15 @@ return "redirect:/index";
 	    @ResponseBody
 	    public  String webserviceListSearchTutorsegs(
 	    		@PathVariable("location") String location ,
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereegs(location, language);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -762,13 +772,15 @@ return "redirect:/index";
 	    @ResponseBody
 	    public  String webserviceListSearchTutorseslo(
 	    		@PathVariable("gender") String gender ,
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereeslo(gender, language);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -797,13 +809,15 @@ return "redirect:/index";
 	    @ResponseBody
 	    public  String webserviceListSearchTutorselol(
 	    		@PathVariable("gender") String gender ,
-	    		@PathVariable("subject") String subject 
+	    		@PathVariable("subject") String subject,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereelol(gender, subject);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -832,13 +846,15 @@ return "redirect:/index";
 	    @ResponseBody
 	    public  String webserviceListSearchTutorseslg(
 	    		@PathVariable("gender") String gender ,
-	    		@PathVariable("location") String location 
+	    		@PathVariable("location") String location ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereeslg(gender, location);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -868,13 +884,15 @@ return "redirect:/index";
 	    @ResponseBody
 	    public  String webserviceListSearchTutorseglg(
 	    		@PathVariable("subject") String subject ,
-	    		@PathVariable("location") String location 
+	    		@PathVariable("location") String location ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereeglg(subject, location);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -903,13 +921,15 @@ return "redirect:/index";
 	    @ResponseBody
 	    public  String webserviceListSearchTutorseglo(
 	    		@PathVariable("subject") String subject ,
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereeglo(subject, language);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -937,13 +957,15 @@ return "redirect:/index";
 		@RequestMapping(value = "/searchtutorsg/{gender}", method=RequestMethod.GET)
 	    @ResponseBody
 	    public  String webserviceListSearchTutorsg(
-	    		@PathVariable("gender") String gender 
+	    		@PathVariable("gender") String gender ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritereg(gender);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -971,13 +993,15 @@ return "redirect:/index";
 		@RequestMapping(value = "/searchtutorssub/{subject}", method=RequestMethod.GET)
 	    @ResponseBody
 	    public  String webserviceListSearchTutorssub(
-	    		@PathVariable("subject") String subject 
+	    		@PathVariable("subject") String subject ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCriteresub(subject);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -1005,13 +1029,15 @@ return "redirect:/index";
 		@RequestMapping(value = "/searchtutorslo/{location}", method=RequestMethod.GET)
 	    @ResponseBody
 	    public  String webserviceListSearchTutorslo(
-	    		@PathVariable("location") String location 
+	    		@PathVariable("location") String location ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCriterelo(location);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -1039,13 +1065,15 @@ return "redirect:/index";
 		@RequestMapping(value = "/searchtutorslg/{language}", method=RequestMethod.GET)
 	    @ResponseBody
 	    public  String webserviceListSearchTutorslg(
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language ,
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCriterelg(language);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());
@@ -1076,13 +1104,15 @@ return "redirect:/index";
 	    		@PathVariable("gender") String gender ,
 	    		@PathVariable("subject") String subject ,
 	    		@PathVariable("location") String location ,
-	    		@PathVariable("language") String language 
+	    		@PathVariable("language") String language , 
+	    		Locale locale
 				) throws JSONException{
 			JSONArray array = new JSONArray();
 			List<Tuto> listTutor =  service_tutor.getTutorByCritere(subject, language, gender, location);    	
 			for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){    	  
 	    	  Tuto item = i.next();
 	  	      JSONObject obj = new JSONObject();
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("hourly",item.getHourly());

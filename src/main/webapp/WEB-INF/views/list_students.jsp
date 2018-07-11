@@ -86,7 +86,12 @@
                        contenuHtml+='</div>';
                        contenuHtml+='<figcaption class="team-member__content">';
                        contenuHtml+='<h3>'+donnees[i].name+'</h3>';
-                       contenuHtml+='<a href="profil_student/'+donnees[i].id+'"><button class="btn btn_primay">View Profile</button></a>';
+                       contenuHtml+='<a href="profil_student/'+donnees[i].id+'"><button class="btn btn_primay">';
+                       if(donnees[0].lang=="fr"){ 
+                       contenuHtml+='Voir le profil';}
+                       else{ 
+                      contenuHtml+='View Profile';}                       
+                      contenuHtml+='</button></a>';
                        contenuHtml+='</figcaption>';
                        contenuHtml+='</figure>';
                        contenuHtml+='</div>';
@@ -108,7 +113,12 @@
             contenuHtml+='</div>';
             contenuHtml+='<figcaption class="team-member__content">';
             contenuHtml+='<h3>'+donnees[i].name+'</h3>';
-            contenuHtml+='<a href="profil_student/'+donnees[i].id+'"><button class="btn btn_primay">View Profile</button></a>';
+            contenuHtml+='<a href="profil_student/'+donnees[i].id+'"><button class="btn btn_primay">';
+            if(donnees[0].lang=="fr"){ 
+            contenuHtml+='Voir le profil';}
+            else{ 
+            contenuHtml+='View Profile';}                       
+            contenuHtml+='</button></a>';
             contenuHtml+='</figcaption>';
             contenuHtml+='</figure>';
             contenuHtml+='</div>';
@@ -118,7 +128,11 @@
   	  contenuHtml1+='<br><br>';
   	contenuHtml1+='<div id="" style="text-align:center;">';
   	contenuHtml1+='<a href="javascript:liststudentsAll();" class="btn btn-primary" style="padding:20px;">';
-  		contenuHtml1+='Load More</a></div>';
+	if(donnees[0].lang=="fr"){ 
+  	contenuHtml1+='Charger plus';}
+  	else{ 
+  	contenuHtml1+='Load More';} 	
+  	contenuHtml1+='</a></div>';
         }
     	else{
           	 contenuHtml+='<div class="row">';
@@ -136,7 +150,12 @@
              contenuHtml+='</div>';
              contenuHtml+='<figcaption class="team-member__content">';
              contenuHtml+='<h3>'+donnees[i].name+'</h3>';
-             contenuHtml+='<a href="profil_student/'+donnees[i].id+'"><button class="btn btn_primay">View Profile</button></a>';
+             contenuHtml+='<a href="profil_student/'+donnees[i].id+'"><button class="btn btn_primay">';
+             if(donnees[0].lang=="fr"){ 
+             contenuHtml+='Voir le profil';}
+             else{ 
+             contenuHtml+='View Profile';}                       
+             contenuHtml+='</button></a>';
              contenuHtml+='</figcaption>';
              contenuHtml+='</figure>';
              contenuHtml+='</div>';	
@@ -145,7 +164,12 @@
     	}
         }
         else{
-        	contenuHtml+='<br><h4>No student with these criteria</h4><br>';	
+        	contenuHtml+='<br><h4>';
+        	if(donnees[0].lang=="fr"){ 
+            contenuHtml+='Aucun étudiant trouvé avec ces critères';}
+            else{ 
+            contenuHtml+='No student with these criteria';} 
+            contenuHtml+='</h4><br>';	
         }
            contenuHtml+='</div>';
            document.getElementById("search_students").innerHTML = contenuHtml;
