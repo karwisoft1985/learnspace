@@ -18,17 +18,21 @@ import javax.persistence.Table;
 public class Review implements java.io.Serializable {
 
 	private Integer idReview;
+	private int note;
 	private String subject;
 	private String description;
 	private int idTutor;
+	private int idStudent;
 
 	public Review() {
 	}
 
-	public Review(String subject, String description, int idTutor) {
+	public Review(String subject, String description, int idTutor, int idStudent, int note) {
 		this.subject = subject;
 		this.description = description;
 		this.idTutor = idTutor;
+		this.idStudent = idStudent;
+		this.note = note;
 	}
 
 	@Id
@@ -43,6 +47,16 @@ public class Review implements java.io.Serializable {
 		this.idReview = idReview;
 	}
 
+
+	@Column(name = "note", nullable = false)
+	public int getNote() {
+		return this.note;
+	}
+
+	public void setNote(int note) {
+		this.note = note;
+	}
+	
 	@Column(name = "subject", nullable = false)
 	public String getSubject() {
 		return this.subject;
@@ -68,6 +82,15 @@ public class Review implements java.io.Serializable {
 
 	public void setIdTutor(int idTutor) {
 		this.idTutor = idTutor;
+	}
+
+	@Column(name = "id_student", nullable = false)
+	public int getIdStudent() {
+		return this.idStudent;
+	}
+
+	public void setIdStudent(int idStudent) {
+		this.idStudent = idStudent;
 	}
 
 }

@@ -6,9 +6,10 @@
 <html class="no-js" lang="zxx">
   
    <%@ include file="/WEB-INF/views/includes/header.jsp" %>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/stylesheet.css">
    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
    <script src="<%=request.getContextPath()%>/resources/js_webservices/gestiontutors/tutors.js"></script>
-   
+
 <script>
 $(document).ready(function(){
 	var CheminComplet = window.location.pathname;
@@ -24,7 +25,8 @@ $(document).ready(function(){
 		contenuHtml+='<div class="row">';
 		contenuHtml+='<div class="col order-12">';
 		contenuHtml+='<h2>'+donnees[0].name+'</h2>';
-		contenuHtml+='<button class="btn btn-success"  data-toggle="modal" data-target="#exampleModalsmsg" style="padding-left:50px;padding-right:50px;font-size:20px;">Contact</button>';
+		contenuHtml+='<button class="btn btn-success"  data-toggle="modal" data-target="#exampleModalsmsg" style="padding-left:30px;padding-right:30px;font-size:20px;margin-right:15px">Contact</button>';
+		contenuHtml+='<button class="btn btn-info"  data-toggle="modal" data-target="#exampleModalsrvw" style="padding-left:30px;padding-right:30px;font-size:20px;">Review</button>';
 		contenuHtml+='</div>';
 		contenuHtml+='</div><br>';
          contenuHtml+='<div class="row">';
@@ -172,11 +174,19 @@ $(document).ready(function(){
 		 contenuHtml+='</div>';
 		 
 		 document.getElementById("profil_tutor").innerHTML = contenuHtml;
-		 document.getElementById("emailTut").value = donnees[0].email;		 
+		 document.getElementById("emailTut").value = donnees[0].email;		
+		 document.getElementById("emailTutrv").value = donnees[0].email;	 
 		 document.getElementById("idTut").value = id;
+		 document.getElementById("idTutor").value = id;
+
 		 
 		});
 });	
+</script>
+<script>
+$(document).ready(function(){
+$('#formreview').captcha();
+});
 </script>
    <body>
 		
@@ -231,13 +241,88 @@ $(document).ready(function(){
           
           <form action="sendmessage" method="GET">
                <input type="hidden" id="emailTut" name="emailTut" />
-          	<input type="hidden" id="idTut" name="idTut" />
+          	<input type="hidden" id="idTutor" name="idTut" />
           	<input type="hidden" id="nom_Student" name="nom_Student" value="${nom_Student}" />
           	<input type="hidden" id="id_student" name="id_student"  value="${id_student}"/>
              <textarea class="form-control" rows="5" name="textmsg">
              </textarea>
           <br><br>
-             <input type="submit" class="btn btn-primary" value="Send" />
+           <spring:message code="label.send" var="labelsend"></spring:message>      
+             <input type="submit" class="btn btn-primary" value="${labelsend}" />
+     
+         </form>
+      
+      </c:if>
+      
+      <c:if test="${connexionstudent == 0}">
+        <form action="connexion_student2" method="post">
+      <center><h5 style="color:red"><spring:message code="label.msg_login" />!</h5></center>
+          <div class="form-group">
+               <label for="exampleInputEmail1" style="color:#fff;"><spring:message code="label.email_address" /></label>
+                    <spring:message code="label.enter_mail" var="labelentermail"></spring:message>      
+            <input type="email" class="form-control" name="emailstud" aria-describedby="emailHelp" placeholder="${labelentermail}" required />
+            </div>
+            <div class="form-group">
+                   <label for="exampleInputPassword1" style="color:#fff;"><spring:message code="label.password" /></label>
+                            <spring:message code="label.password" var="labelpassword"></spring:message>      
+            <input type="password" class="form-control" name="passwordstud" placeholder="${labelassword}" required />
+            </div>
+            <button type="submit" class="btn btn-info"><spring:message code="label.login" /></button>
+			<a style="color:#fff;margin-left:20px;" href="<%=request.getContextPath()%>/registration" class="btn btn-info"><spring:message code="label.sign_up" /></a>            									
+         </form>
+      </c:if>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><spring:message code="label.close" /></button>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+		
+		<!-- Modal -->
+<div class="modal fade" id="exampleModalsrvw" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <h5 class="modal-title" id="exampleModalLabel"><spring:message code="label.send_msg" /></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <c:if test="${connexionstudent != 0}">
+          
+          <form action="sendreview" method="GET" id="formreview">
+           <input type="hidden" id="idTut" name="idTut" />
+               <input type="hidden" id="emailTutrv" name="emailTutrv" />
+          	<input type="hidden" id="id_student" name="id_student"  value="${id_student}"/>
+    <input type="hidden" id="nomStudent" name="nomStudent" value="${nom_Student}" />
+          	
+     <p style="margin: 0 0 1.5em; padding: 0;">
+          <span class="starRating">
+   <input id="rating5" type="radio" name="rating" value="5">
+        <label for="rating5">5</label>
+        <input id="rating4" type="radio" name="rating" value="4">
+        <label for="rating4">4</label>
+        <input id="rating3" type="radio" name="rating" value="3">
+        <label for="rating3">3</label>
+        <input id="rating2" type="radio" name="rating" value="2">
+        <label for="rating2">2</label>
+        <input id="rating1" type="radio" name="rating" value="1">
+        <label for="rating1">1</label>
+      </span>
+        </p>
+         <spring:message code="label.subject" var="labelsubject"></spring:message>  
+        <input class="form-control" type="text" name="textsbj" placeholder="${labelsubject}" required/>
+        <br><spring:message code="label.cmnt" var="labelcmnt"></spring:message> 
+        <textarea class="form-control" rows="5" name="textcomment" placeholder="${labelcmnt}" required>
+        </textarea>
+          <br><br>
+          <spring:message code="label.sbmt" var="labelsubmit"></spring:message> 
+             <input type="submit" class="btn btn-primary" value="${labelsubmit}" />
      
          </form>
       

@@ -2,6 +2,7 @@ package com.karwisoft.learnspace.dao;
 import java.util.List;
 
 import com.karwisoft.learnspace.beans.Messages;
+import com.karwisoft.learnspace.beans.Review;
 import com.karwisoft.learnspace.beans.Tuto;
 public interface TutorDao {
 	
@@ -14,4 +15,5 @@ public interface TutorDao {
 	public List<Tuto> getTutorByLogin(String email,String password);
 	public List<Tuto> getTutorByCritere(String subject,String language,String gender,String location);
 	Integer addmessage(Messages mg);
+	Integer addreview(Review rv);
 }

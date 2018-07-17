@@ -3,6 +3,7 @@ package com.karwisoft.learnspace.services;
 import java.util.List;
 
 import com.karwisoft.learnspace.beans.Messages;
+import com.karwisoft.learnspace.beans.Review;
 import com.karwisoft.learnspace.beans.Tuto;
 import com.karwisoft.learnspace.dao.TutorDaoImp;
 
@@ -152,6 +153,11 @@ public class TutorServicesImp implements TutorServices{
 	@Override
 	public Integer addmessage(Messages mg) {
 		return dao_tuto.addmessage(mg);
+	}
+
+	@Override
+	public Integer addreview(Review rv) {
+		return dao_tuto.addreview(rv);
 	}
 
 	

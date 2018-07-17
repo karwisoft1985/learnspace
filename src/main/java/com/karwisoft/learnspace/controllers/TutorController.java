@@ -35,6 +35,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.karwisoft.learnspace.beans.Student;
 import com.karwisoft.learnspace.beans.Tuto;
 import com.karwisoft.learnspace.beans.Messages;
+import com.karwisoft.learnspace.beans.Review;
 import com.karwisoft.learnspace.services.TutorServices;
 
 import java.util.Locale;
@@ -485,7 +486,58 @@ redirectAttributes.addFlashAttribute("successsent", "Your message has been sent 
 
 return "redirect:/index";
 		 }
-	
+
+		@RequestMapping(value="/profil_tutor/sendreview",method=RequestMethod.GET)
+		 public String sendreviewtutor(@RequestParam("idTut") Integer idTut,@RequestParam("id_student") Integer id_student,
+				 @RequestParam("nomStudent") String nomStudent,@RequestParam("rating") Integer rating,@RequestParam("textsbj") String textsbj,
+				 @RequestParam("emailTutrv") String email,@RequestParam("textcomment") String textcomment,Locale locale, final RedirectAttributes redirectAttributes)
+		 {		
+			List<Tuto> listTutor =  service_tutor.getTutorById(idTut);
+	    	  for(Iterator<Tuto> i = listTutor.iterator();i.hasNext();){
+	    		  
+	    	  Tuto item = i.next();
+	    	 	
+	  		  String name=item.getName();
+			   String subject =nomStudent+" wrote you a review";
+			   String msg = "Assalamu Alaykom,\n"+
+
+			   "Dear "+name+",\n"+
+			   nomStudent+"  wrote you the following review:\n"+
+			   "Rate: "+rating+"\n"+
+			    "Subject: "+textsbj+"\n"+
+			    "Comments: "+textcomment+"\n"+
+
+			  "--\n"+
+			  "IMPORTANT NOTE: Reviews are not monitored by the Quran Space Team, Please use the Report button to report any review that is false or that uses inappropriate language.\n"+
+			   "For any questions reply to this email or send an email to info@quranspace.net.\n"+
+
+			   "JazakAllah khair,\n"+
+			   "Quran Space Team\n"+
+			   "QuranSpace.net\n";
+			    SimpleMailMessage mail = new SimpleMailMessage();
+			    mail.setFrom("info@quranspace.net");	  
+		 		mail.setTo(email);
+		 		mail.setSubject(subject);
+		 		mail.setText(msg);
+		 		mailSender.send(mail); 	
+	    	  }
+			Review  rv = new Review();
+				rv.setDescription(textcomment);
+				rv.setSubject(textsbj);
+				rv.setIdTutor(idTut);
+				rv.setIdStudent(id_student);
+		    	rv.setNote(rating);
+		    	System.out.println("rate"+rating);
+				service_tutor.addreview(rv);
+if(locale.equals("fr")){				 
+redirectAttributes.addFlashAttribute("successsentrv", "La revue est ajoutée avec succès!");			
+}else{				 
+redirectAttributes.addFlashAttribute("successsentrv", "The review is added successfully!");			
+}
+
+return "redirect:/index";
+		 }
+		
 		@RequestMapping(value = "/dashboard_tutor", method = RequestMethod.GET)
 		public ModelAndView dashboard_tutor(HttpSession session){
 			

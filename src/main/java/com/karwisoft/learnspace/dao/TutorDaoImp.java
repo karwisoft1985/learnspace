@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.karwisoft.learnspace.beans.Messages;
+import com.karwisoft.learnspace.beans.Review;
 import com.karwisoft.learnspace.beans.Tuto;
 import com.project.hibernate.HibernateUtil;
 public class TutorDaoImp implements TutorDao{
@@ -372,5 +373,16 @@ public class TutorDaoImp implements TutorDao{
         session.getTransaction().commit(); 
 		session.close();
 		return mg.getIdMsg();
+	}
+
+	public Integer addreview(Review rv) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+		session.beginTransaction();
+    	session.save(rv);
+        session.getTransaction().commit(); 
+		session.close();
+		System.out.println(rv.getIdReview());
+		return rv.getIdReview();
 	}
 }

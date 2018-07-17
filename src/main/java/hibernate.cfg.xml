@@ -11,5 +11,6 @@
   <mapping class="com.karwisoft.learnspace.beans.Tuto"/>
   <mapping class="com.karwisoft.learnspace.beans.Student"/>
   <mapping class="com.karwisoft.learnspace.beans.Messages"/>
+  <mapping class="com.karwisoft.learnspace.beans.Review"/>
  </session-factory>
 </hibernate-configuration>

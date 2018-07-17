@@ -2,6 +2,7 @@ package com.karwisoft.learnspace.services;
 import java.util.List;
 
 import com.karwisoft.learnspace.beans.Messages;
+import com.karwisoft.learnspace.beans.Review;
 import com.karwisoft.learnspace.beans.Tuto;
 public interface TutorServices {
 	
@@ -31,6 +32,7 @@ public interface TutorServices {
 			String modHourly, String modSub1, String modlanguage, String modPreference, String modComMedia,
 			String modRiwaya, String modCertif, String modPreviousexp, String modAbout, String modTimeZone, String name, Integer id_tutor);
 	Integer addmessage(Messages mg);
+	Integer addreview(Review rv);
 	
 
 }
