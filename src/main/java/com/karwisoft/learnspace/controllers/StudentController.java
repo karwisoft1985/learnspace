@@ -277,12 +277,11 @@ redirectAttributes.addFlashAttribute("error","Login or password is invalid!");
 				return "redirect:/profil_tutor/"+id_tutor;
 			}
 			else{
-				
 				Integer idStudent = logins.get(0).getIdStudent();
 				List<Student> student = service_student.getStudentById(idStudent);
 				String nom=student.get(0).getName();
 				session.setAttribute("id_student",student.get(0).getIdStudent());
-				session.setAttribute("nom_Student",nom);				
+				session.setAttribute("nom_Student",nom);			
 				session.setAttribute("connexionstudent", student.get(0).getIdStudent());
 				session.setAttribute("emailstudent",student.get(0).getEmail());
 				session.setAttribute("type", "student");

@@ -231,7 +231,33 @@ $(document).ready(function(){
 		  
 	    });
 });	
+
+$(function() {
+	$('input[type=submit]').click(function() {		
+$('h6').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
+	$('span.stars').stars();
+});    		
+$('input[type=submit]').click();
+});
+
+
+	$.fn.stars = function() {
+		return $(this).each(function() {
+			$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+		});
+	}
 </script>
+<style type="text/css">
+		span.stars, span.stars span {
+			display: block;
+			background: url("resources/images/tutor/stars.png") 0 -16px repeat-x;
+			width: 80px;
+			height: 16px;
+		}
+		span.stars span {
+			background-position: 0 0;
+		}
+</style>
 	<body>
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -280,6 +306,14 @@ $(document).ready(function(){
 				                    <!-- Checkout Method -->
 				                    <div class="single-accordion" id="tutor-picture">				                        
 				                    </div>
+				                    <c:if  test="${nbreview != 0}">    
+ <div class="container" style="margin-left:10%;">       
+<span style="display:none">
+<input type="text" name="amount" id="amount" value="${review/nbreview}"  />
+<input type="submit" value="update"></span>
+<h6><span class="stars"></span></h6>	
+</div>
+</c:if>
 				                </div><!-- Checkout Accordion Start -->
 				                
 				            </div>

@@ -385,4 +385,53 @@ public class TutorDaoImp implements TutorDao{
 		System.out.println(rv.getIdReview());
 		return rv.getIdReview();
 	}
+
+	public Integer getreviewBytutor(Integer idTutor) {
+
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT SUM(R.note) FROM Review R WHERE R.idTutor = :idTutor";
+        Query query = session.createQuery(hql);
+        query.setParameter("idTutor",idTutor);    
+         Object rst = query.list().get(0);
+         int i; 
+         if(rst != null){
+             i =Integer.parseInt( rst.toString() );
+         }
+         else{
+             i =0;	
+         }    
+        session.close();
+        return i;
+	}
+
+	public Integer getnbreviewBytutor(Integer idTutor) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT COUNT(R.note) FROM Review R WHERE R.idTutor = :idTutor";
+        Query query = session.createQuery(hql);
+        query.setParameter("idTutor",idTutor);
+         Object rst = query.list().get(0);
+         int i; 
+         if(rst != null){
+             i =Integer.parseInt( rst.toString() );
+         }
+         else{
+             i =0;	
+         } 
+        session.close();
+        return i;
+	}
+
+	public List<Review> getreviewsBytutor(Integer idTutor) {
+
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        String hql = "FROM Review R WHERE R.idTutor = :idTutor order by idReview desc";
+        Query query = session.createQuery(hql);
+        query.setParameter("idTutor",idTutor);
+        List<Review> resps = (List<Review>) query.list();
+        session.close();
+        return resps;
+	}
 }

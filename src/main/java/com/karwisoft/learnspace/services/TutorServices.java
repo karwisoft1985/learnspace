@@ -33,6 +33,9 @@ public interface TutorServices {
 			String modRiwaya, String modCertif, String modPreviousexp, String modAbout, String modTimeZone, String name, Integer id_tutor);
 	Integer addmessage(Messages mg);
 	Integer addreview(Review rv);
+	public Integer getreviewBytutor(Integer idTutor);
+	public Integer getnbreviewBytutor(Integer idTutor);
+	public List<Review> getreviewsBytutor(Integer idTutor);
 	
 
 }

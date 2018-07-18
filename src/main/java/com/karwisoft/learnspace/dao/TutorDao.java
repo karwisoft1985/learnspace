@@ -16,4 +16,5 @@ public interface TutorDao {
 	public List<Tuto> getTutorByCritere(String subject,String language,String gender,String location);
 	Integer addmessage(Messages mg);
 	Integer addreview(Review rv);
+	public Integer getreviewBytutor(Integer idTutor);
 }

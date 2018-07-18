@@ -55,4 +55,8 @@ public interface StudentDao {
 
 	public List<Student> getStudentByCriteres(String gender, String subject, String location, String language);
 
+	public List<Student> getstudentbyid(Integer idtutor);
+
+	Integer getreviewedst(Integer idstud, Integer idTutor);
+
 }

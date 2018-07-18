@@ -160,6 +160,21 @@ public class TutorServicesImp implements TutorServices{
 		return dao_tuto.addreview(rv);
 	}
 
+	@Override
+	public Integer getreviewBytutor(Integer idTutor) {
+		return dao_tuto.getreviewBytutor(idTutor);
+	}
+
+	@Override
+	public Integer getnbreviewBytutor(Integer idTutor) {
+		return dao_tuto.getnbreviewBytutor(idTutor);
+	}
+
+	@Override
+	public List<Review> getreviewsBytutor(Integer idTutor) {
+		return dao_tuto.getreviewsBytutor(idTutor);
+	}
+
 	
 
 }

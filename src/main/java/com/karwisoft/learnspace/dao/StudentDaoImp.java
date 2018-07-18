@@ -375,4 +375,36 @@ public class StudentDaoImp implements StudentDao{
         return resps;
         }
 
+	@Override
+	public List<Student> getstudentbyid(Integer idtutor) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        String hql1 = "FROM Student S WHERE S.idStudent in (SELECT R.idStudent FROM Review R WHERE R.idTutor = :idtutor)";
+        Query query1 = session.createQuery(hql1);
+        query1.setParameter("idtutor",idtutor);
+        List<Student> resps1 = (List<Student>) query1.list(); 
+        session.close();
+        return resps1;
+	}
+
+	@Override
+	public Integer getreviewedst(Integer idstud, Integer idTutor) {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT COUNT(R.idReview) FROM Review R WHERE R.idStudent = :idstud and R.idTutor = :idTutor";
+        Query query = session.createQuery(hql);
+        query.setParameter("idstud",idstud);
+        query.setParameter("idTutor",idTutor);
+         Object rst = query.list().get(0);
+         int i; 
+         if(rst != null){
+             i =Integer.parseInt( rst.toString() );
+         }
+         else{
+             i =0;	
+         } 
+        session.close();
+        return i;
+	}
+
 }

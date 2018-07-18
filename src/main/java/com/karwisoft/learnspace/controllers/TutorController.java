@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Base64;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -32,17 +32,19 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.karwisoft.learnspace.beans.Student;
 import com.karwisoft.learnspace.beans.Tuto;
 import com.karwisoft.learnspace.beans.Messages;
 import com.karwisoft.learnspace.beans.Review;
+import com.karwisoft.learnspace.services.StudentServices;
 import com.karwisoft.learnspace.services.TutorServices;
 
 import java.util.Locale;
 
 @Controller
 public class TutorController {
-
+	@Autowired
+	private StudentServices service_student;
+	
 	@Autowired
 	private TutorServices service_tutor;
 
@@ -127,9 +129,24 @@ redirectAttributes.addFlashAttribute("success", "Your password has been reset, p
 			 if(connexionstudent == null)
 		        {
 		        	session.setAttribute("connexionstudent", 0);
-		        }	
+		        }
+			 else{
+				 String idcnx=connexionstudent.toString();
+				 Integer idconex=Integer.parseInt( idcnx);
+			modelAndView.addObject("reviewed",service_student.getreviewedst(idconex, idTutor));
+				 }
 			 modelAndView.addObject("connexionstudent",session.getAttribute("connexionstudent"));
-			 modelAndView.setViewName("profil_tutor");
+		if(service_tutor.getnbreviewBytutor(idTutor).equals(0)){
+				 modelAndView.addObject("nbreview",0);
+}
+			 else{
+				 modelAndView.addObject("review",service_tutor.getreviewBytutor(idTutor));
+				 modelAndView.addObject("nbreview",service_tutor.getnbreviewBytutor(idTutor));
+				 }
+		 modelAndView.addObject("reviews",service_tutor.getreviewsBytutor(idTutor));
+		 Integer size=service_student.getstudentbyid(idTutor).size();
+		modelAndView.addObject("namestud",service_student.getstudentbyid(idTutor));
+		 modelAndView.setViewName("profil_tutor");
 			 return modelAndView;
 			
 		}
@@ -425,8 +442,7 @@ return "redirect:/login";
 			  obj.put("location",item.getLocation());
 			  obj.put("language",item.getLanguage());
 			  obj.put("preview_experience",item.getPreviewExperience());
-			  array.put(obj);
-	  		
+			  array.put(obj);	  	
 	    	}
 	    	return array.toString();
 	   
@@ -442,7 +458,6 @@ return "redirect:/login";
 	    	  for(Iterator<Tuto> i = listTutor.iterator();i.hasNext();){
 	    		  
 	    	  Tuto item = i.next();
-	    	  JSONObject obj = new JSONObject();
 	    	 	
 	  		  String name=item.getName();
 			   String subject ="Contact QuranSpace";
@@ -496,7 +511,6 @@ return "redirect:/index";
 	    	  for(Iterator<Tuto> i = listTutor.iterator();i.hasNext();){
 	    		  
 	    	  Tuto item = i.next();
-	    	 	
 	  		  String name=item.getName();
 			   String subject =nomStudent+" wrote you a review";
 			   String msg = "Assalamu Alaykom,\n"+
@@ -544,6 +558,15 @@ return "redirect:/index";
 			ModelAndView modelAndView = new ModelAndView();
 			modelAndView.addObject("id_tutor", session.getAttribute("id_tutor"));
 			modelAndView.addObject("nom_tutor",session.getAttribute("nom_tutor"));
+			String idt=session.getAttribute("id_tutor").toString();
+			Integer idtut=Integer.parseInt(idt);
+			if(service_tutor.getnbreviewBytutor(idtut).equals(0)){
+				 modelAndView.addObject("nbreview",0);
+}
+			 else{
+				 modelAndView.addObject("review",service_tutor.getreviewBytutor(idtut));
+				 modelAndView.addObject("nbreview",service_tutor.getnbreviewBytutor(idtut));
+				 }
 			modelAndView.setViewName("espace_tutor/profil");
 			return modelAndView;
 			
@@ -602,8 +625,8 @@ return "redirect:/index";
 			JSONArray array = new JSONArray(); 
 	    	List<Tuto> listTutor =  service_tutor.getTutorById(idTutor);
 	    	  for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){
-	    	  Tuto item = i.next();
-	    	  JSONObject obj = new JSONObject();
+	    	  Tuto item = i.next();	    	  
+	    	  JSONObject obj = new JSONObject();	
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("email",item.getEmail());

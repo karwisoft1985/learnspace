@@ -137,4 +137,14 @@ private StudentDao dao_student;
 		return dao_student.getStudentByCriteres(gender, subject, location, language);
 		}
 
+	@Override
+	public List<Student> getstudentbyid(Integer idtutor) {
+		return dao_student.getstudentbyid(idtutor);
+		}
+
+	@Override
+	public Integer getreviewedst(Integer idstud, Integer idTutor) {
+		return dao_student.getreviewedst(idstud,idTutor);
+	}
+
 }
