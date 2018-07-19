@@ -536,12 +536,15 @@ return "redirect:/index";
 		 		mailSender.send(mail); 	
 	    	  }
 			Review  rv = new Review();
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	    	  LocalDate localDate = LocalDate.now();
+	    	  String daterv=dtf.format(localDate);		     
 				rv.setDescription(textcomment);
 				rv.setSubject(textsbj);
 				rv.setIdTutor(idTut);
 				rv.setIdStudent(id_student);
 		    	rv.setNote(rating);
-		    	System.out.println("rate"+rating);
+		    	rv.setDate(daterv);
 				service_tutor.addreview(rv);
 if(locale.equals("fr")){				 
 redirectAttributes.addFlashAttribute("successsentrv", "La revue est ajoutée avec succès!");			
@@ -620,13 +623,14 @@ return "redirect:/index";
 
 		@RequestMapping(value = "/profil_tutor/{id}/getTutorById", method=RequestMethod.GET)
 	    @ResponseBody
-	    public  String webserviceGetTutorById(@PathVariable("id") int idTutor) throws JSONException{
+	    public  String webserviceGetTutorById(@PathVariable("id") int idTutor,Locale locale) throws JSONException{
 			
 			JSONArray array = new JSONArray(); 
 	    	List<Tuto> listTutor =  service_tutor.getTutorById(idTutor);
 	    	  for(Iterator<Tuto> i = listTutor.iterator(); i.hasNext(); ){
 	    	  Tuto item = i.next();	    	  
-	    	  JSONObject obj = new JSONObject();	
+	    	  JSONObject obj = new JSONObject();		
+	  		  obj.put("lang",locale);
 	  		  obj.put("id",item.getIdTutor());
 	  		  obj.put("name",item.getName());
 	  		  obj.put("email",item.getEmail());

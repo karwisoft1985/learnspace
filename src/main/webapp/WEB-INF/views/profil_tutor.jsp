@@ -38,7 +38,7 @@ $(document).ready(function(){
          contenuHtml+='<div class="col">';
          contenuHtml+='<strong>';
          if(donnees[0].lang=="fr"){ 
-         contenuHtml+='Âge';}
+         contenuHtml+='\u00C2ge';}
          else{ 
          contenuHtml+='Age';}
          contenuHtml+=' </strong><br>';
@@ -57,7 +57,7 @@ $(document).ready(function(){
          contenuHtml+='<div class="col order-1">';
          contenuHtml+='<strong>';
          if(donnees[0].lang=="fr"){ 
-         contenuHtml+='Langues parlées';}
+         contenuHtml+='Langues parl\u00E9es';}
          else{ 
          contenuHtml+=' Spoken Languages';}
          contenuHtml+=' </strong><br>';
@@ -109,7 +109,7 @@ $(document).ready(function(){
          contenuHtml+='<div class="col order-12">';
          contenuHtml+='<strong>';
          if(donnees[0].lang=="fr"){ 
-          contenuHtml+='Préférences d\'enseignement';}
+          contenuHtml+='Pr\u00E9f\u00E9rences d\'enseignement';}
           else{ 
           contenuHtml+=' Teaching preferences';}
           contenuHtml+='</strong><br>';
@@ -118,7 +118,7 @@ $(document).ready(function(){
          contenuHtml+='<div class="col order-1">';
          contenuHtml+='<strong>';
          if(donnees[0].lang=="fr"){ 
-         contenuHtml+='Médias de communication';}
+         contenuHtml+='M\u00E9dias de communication';}
          else{ 
          contenuHtml+=' Communication media';}
          contenuHtml+=' </strong>';
@@ -129,7 +129,7 @@ $(document).ready(function(){
  		contenuHtml+='<div class="col order-12">';
         contenuHtml+='<label><strong>';
         if(donnees[0].lang=="fr"){ 
-        contenuHtml+='À propos';}
+        contenuHtml+='\u00C0 propos';}
         else{ 
         contenuHtml+='About';}
         contenuHtml+='</strong></label>';
@@ -140,7 +140,7 @@ $(document).ready(function(){
 		 contenuHtml+='<div class="col order-12">';
          contenuHtml+='<strong>';
          if(donnees[0].lang=="fr"){ 
-         contenuHtml+='Exemple de récitation';}
+         contenuHtml+='Exemple de r\u00E9citation';}
          else{ 
          contenuHtml+='Recitation sample';}
          contenuHtml+='</strong></br>';
@@ -161,7 +161,7 @@ $(document).ready(function(){
          contenuHtml+='</div>';
          contenuHtml+='<div class="row">';
 		 contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong> Certifications (Ijzazat) </strong>';
+         contenuHtml+='<strong> Certifications (Ijaza) </strong>';
          contenuHtml+='<p>'+donnees[0].certification+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';
@@ -169,7 +169,7 @@ $(document).ready(function(){
 		 contenuHtml+='<div class="col order-12">';
          contenuHtml+='<strong>';
          if(donnees[0].lang=="fr"){ 
-         contenuHtml+='Expériences précedentes';}
+         contenuHtml+='Exp\u00E9riences pr\u00E9cedentes';}
          else{ 
          contenuHtml+='Previous experiences';}
          contenuHtml+='</strong>';
@@ -180,7 +180,7 @@ $(document).ready(function(){
 		 
 		 document.getElementById("pic_tutor").innerHTML = contenuHtmlp;
 		 document.getElementById("name_tutor").innerHTML = contenuHtmln;
-			document.getElementById("profil_tutor").innerHTML = contenuHtml;
+		 document.getElementById("profil_tutor").innerHTML = contenuHtml;
 		 document.getElementById("emailTut").value = donnees[0].email;		
 		 document.getElementById("emailTutrv").value = donnees[0].email;	 
 		 document.getElementById("idTut").value = id;
@@ -260,18 +260,18 @@ $(document).ready(function(){
 </c:if>
 	<div id="name_tutor">	</div>	
 	 <div class="container" style="margin-left:5%;">       	
-	<button class="btn btn-success"  data-toggle="modal" data-target="#exampleModalsmsg" style="padding-left:30px;padding-right:30px;font-size:20px;margin-right:15px">Contact</button>
+	<button class="btn btn-success"  data-toggle="modal" data-target="#exampleModalsmsg" style="padding-left:30px;padding-right:30px;font-size:20px;margin-right:15px"><spring:message code="label.contact" /></button>
 	  <c:if test="${connexionstudent == 0}">
-      <button class="btn btn-info"  data-toggle="modal" data-target="#exampleModalsrvw" style="padding-left:30px;padding-right:30px;font-size:20px;">Review</button>		
+      <button class="btn btn-info"  data-toggle="modal" data-target="#exampleModalsrvw" style="padding-left:30px;padding-right:30px;font-size:20px;"><spring:message code="label.review" /></button>		
 	</c:if>
 	 <c:if test="${connexionstudent != 0}">
 	 	<c:if test="${type == 'student'}">
 	<c:if  test="${reviewed == 0}"> 
-      <button class="btn btn-info"  data-toggle="modal" data-target="#exampleModalsrvw" style="padding-left:30px;padding-right:30px;font-size:20px;">Review</button>		
+      <button class="btn btn-info"  data-toggle="modal" data-target="#exampleModalsrvw" style="padding-left:30px;padding-right:30px;font-size:20px;"><spring:message code="label.review" /></button>		
 	</c:if>
 	<c:if  test="${reviewed != 0}"> 
 
-      <strong style="color:green;font-size:20px">Review <i class="fa fa-check"></i></strong>		
+      <strong style="color:green;font-size:20px"><spring:message code="label.review" /> <i class="fa fa-check"></i></strong>		
 	</c:if>
 	</c:if>
 	</c:if>
@@ -280,23 +280,24 @@ $(document).ready(function(){
 <c:if  test="${nbreview != 0}">  
 	<hr>	
   <div class="container">
-			<h3>Reviews</h3>
+			<h3><spring:message code="label.reviews" /></h3>
 <c:set var="stats" value="${namestud}" />
 <c:forEach items="${reviews}" varStatus="i">
 <c:set var="name" value="${namestud[i.index].name}"/>	          
         <div class="row">
 		<div class="col order-12">  
-	<p><strong>Review by: </strong>${name}</p>
+	<p><strong><spring:message code="label.reviewby" />: </strong>${name}</p>
        </div></div> 
       <div class="row">
      <div class="col order-12"> 
-<strong>Overall stars: </strong>
+<strong><spring:message code="label.overall" />: </strong>
 <span class="rating" data-default-rating="${reviews[i.index].note}" disabled></span>
 </div></div>
- <div class="row"><div class="col order-12"><p><strong> Subject: </strong>${reviews[i.index].subject}</p></div></div>
+ <div class="row"><div class="col order-12"><p><strong> <spring:message code="label.subject" />: </strong>${reviews[i.index].subject}</p></div></div>
  <div class="row">
  <div class="col order-12">
-<p><strong>Comments: </strong> <textarea style="width: 70%;padding: .375rem .75rem;color: #495057;border: 1px solid #ced4da;border-radius: .25rem;position:absolute" disabled>${reviews[i.index].description}</textarea></p>
+<p><strong><spring:message code="label.comments" />: </strong> <textarea style="width: 70%;padding: .375rem .75rem;color: #495057;border: 1px solid #ced4da;border-radius: .25rem;position:absolute" disabled>${reviews[i.index].description}</textarea>
+<br><br><br><span style="margin-left:60%"><spring:message code="label.added" />${reviews[i.index].date}</span></p>
 </div></div>
 <hr>
 </c:forEach>

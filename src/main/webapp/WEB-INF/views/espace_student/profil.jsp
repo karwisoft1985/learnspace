@@ -171,7 +171,7 @@ $(document).ready(function(){
          contenuHtml+='</div>';
          contenuHtml+='<div class="row">';
          contenuHtml+='<div class="col order-12">';
-         contenuHtml+='<strong> Certifications (Ijzazat) </strong>';
+         contenuHtml+='<strong> Certifications (Ijaza) </strong>';
          contenuHtml+='<p>'+donnees[0].certifications+'</p>';
          contenuHtml+='</div>';
          contenuHtml+='</div>';

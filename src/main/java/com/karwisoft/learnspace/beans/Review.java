@@ -23,16 +23,18 @@ public class Review implements java.io.Serializable {
 	private String description;
 	private int idTutor;
 	private int idStudent;
+	private String date;
 
 	public Review() {
 	}
 
-	public Review(String subject, String description, int idTutor, int idStudent, int note) {
+	public Review(String subject, String description, int idTutor, int idStudent, int note, String date) {
 		this.subject = subject;
 		this.description = description;
 		this.idTutor = idTutor;
 		this.idStudent = idStudent;
 		this.note = note;
+		this.date = date;
 	}
 
 	@Id
@@ -75,6 +77,15 @@ public class Review implements java.io.Serializable {
 		this.description = description;
 	}
 
+	@Column(name = "date", nullable = false, length = 10)
+	public String getDate() {
+		return this.date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 	@Column(name = "id_tutor", nullable = false)
 	public int getIdTutor() {
 		return this.idTutor;
