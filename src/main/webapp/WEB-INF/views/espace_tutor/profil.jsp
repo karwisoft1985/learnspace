@@ -81,7 +81,12 @@ $(document).ready(function(){
          else{ 
          contenuHtml+='Hourly rate';}
          contenuHtml+=' </strong><br>';
- 		contenuHtml+='<h1 class="display-6" style="color:#bf470d;font-size:40px;">'+donnees[0].hourly+'</h1>';
+         if(donnees[0].hourly==''){
+			 var hrly="-";			 
+		 }else{
+			 var hrly=donnees[0].hourly;	
+		 }
+ 		contenuHtml+='<h1 class="display-6" style="color:#bf470d;font-size:40px;">'+hrly+' $</h1>';
  		contenuHtml+='</div>';
          contenuHtml+='</div>';
  		contenuHtml+='<div class="row">';
@@ -208,9 +213,9 @@ $(document).ready(function(){
 		 document.getElementById("tutor-picture").innerHTML = contenuHtml1;
 		 document.getElementById("mod-name").value = donnees[0].name;
 		 document.getElementById("mod-age").value = donnees[0].age;
-	document.getElementById("mod-riwaya").value = donnees[0].riwaya;
+		document.getElementById("mod-riwaya").value = donnees[0].riwaya;
 		 document.getElementById("mod-aboutme").value = donnees[0].about;
-		 document.getElementById("mod-password").value = donnees[0].password;
+		 document.getElementById("mod-password").value = donnees[0].password;		
 		document.getElementById("mod-hourly").value = donnees[0].hourly;
 		 document.getElementById("mod-previous-exp").value = donnees[0].preview_experience;
 		 document.getElementById("mod-certif").value = donnees[0].certification;
@@ -231,6 +236,14 @@ $(document).ready(function(){
 		  
 	    });
 });	
+
+$(document).ready(function(){
+	  $('input#mod-hourly').blur(function(){
+	    var num = parseFloat($(this).val());
+	    var cleanNum = num.toFixed(2);
+	    $(this).val(cleanNum);
+	  });
+});
 
 $(function() {
 	$('input[type=submit]').click(function() {		
@@ -841,8 +854,8 @@ $('input[type=submit]').click();
         </select>
      </div>
      <div class="form-group col-md-12">
-       <label ><spring:message code="label.hourly" /></label>
-       <input class="form-control" name="mod-hourly" id="mod-hourly" />
+       <label ><spring:message code="label.hourly" /> ($)</label>
+       <input type="number" min="0" step="0.01" class="form-control" name="mod-hourly" id="mod-hourly" />
     </div>
     </div>
 <div class="form-row">

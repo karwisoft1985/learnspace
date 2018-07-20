@@ -104,7 +104,12 @@ $(document).ready(function(){
         else{ 
         contenuHtml+='Hourly rate';}
         contenuHtml+=' </strong></label>';
-		contenuHtml+='<h1 class="display-6" style="color:#bf470d;font-size:40px;">'+donnees[0].hourly+'</h1>';
+        if(donnees[0].hourly ==''){
+ 			 var hrly="-";		
+ 		 }else{
+ 			 var hrly=donnees[0].hourly;	
+ 		 }
+		contenuHtml+='<h1 class="display-6" style="color:#bf470d;font-size:40px;">'+hrly+' $</h1>';
 		contenuHtml+='</div>';
          contenuHtml+='<div class="col order-12">';
          contenuHtml+='<strong>';
@@ -248,7 +253,15 @@ $(document).ready(function(){
 						      <div class="alert alert-danger"><strong>${error}</strong> </div>
 					      </div>
                 </c:if>
-                
+  	
+			<c:if test="${not empty successsentrv}">
+		    <div class="alert alert-success" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">x</span>
+			</button>
+			<center><strong>${successsentrv}</strong></center>
+		    </div>
+			</c:if>              
 <div id="pic_tutor"></div>	 
  <c:if  test="${nbreview != 0}">    
  <div class="container" style="margin-left:10%;">       

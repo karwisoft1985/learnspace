@@ -85,7 +85,12 @@
                        contenuHtml+='</div>';
                        contenuHtml+='<figcaption class="team-member__content">';
                        contenuHtml+='<h3>'+donnees[i].name+'</h3>';
-                       contenuHtml+='<h5>'+donnees[i].hourly+'</h5>';
+                       if(donnees[i].hourly==''){
+              			 var hrly="-";			 
+              		 }else{
+              			 var hrly=donnees[i].hourly;	
+              		 }
+                       contenuHtml+='<h5>'+hrly+' $</h5>';
                        contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">';
                        if(donnees[0].lang=="fr"){ 
                        contenuHtml+='Voir le profil';}
@@ -113,7 +118,12 @@
             contenuHtml+='</div>';
             contenuHtml+='<figcaption class="team-member__content">';
             contenuHtml+='<h3>'+donnees[i].name+'</h3>';
-            contenuHtml+='<h5>'+donnees[i].hourly+'</h5>';
+            if(donnees[i].hourly==''){
+     			 var hrly="-";			 
+     		 }else{
+     			 var hrly=donnees[i].hourly;	
+     		 }
+            contenuHtml+='<h5>'+hrly+' $</h5>';
             contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">';
             if(donnees[0].lang=="fr"){ 
             contenuHtml+='Voir le profil';}
@@ -151,7 +161,12 @@
              contenuHtml+='</div>';
              contenuHtml+='<figcaption class="team-member__content">';
              contenuHtml+='<h3>'+donnees[i].name+'</h3>';
-             contenuHtml+='<h5>'+donnees[i].hourly+'</h5>';
+             if(donnees[i].hourly==''){
+      			 var hrly="-";			 
+      		 }else{
+      			 var hrly=donnees[i].hourly;	
+      		 }
+             contenuHtml+='<h5>'+hrly+' $</h5>';
              contenuHtml+='<a href="profil_tutor/'+donnees[i].id+'"><button class="btn btn_primay">';
              if(donnees[0].lang=="fr"){ 
               contenuHtml+='Voir le profil';}

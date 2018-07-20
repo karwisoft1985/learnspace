@@ -382,7 +382,6 @@ public class TutorDaoImp implements TutorDao{
     	session.save(rv);
         session.getTransaction().commit(); 
 		session.close();
-		System.out.println(rv.getIdReview());
 		return rv.getIdReview();
 	}
 

@@ -51,15 +51,7 @@
 			<center><strong>${successcontact}</strong></center>
 		    </div>
 			</c:if>
-			
-			<c:if test="${not empty successsentrv}">
-		    <div class="alert alert-success" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">x</span>
-			</button>
-			<center><strong>${successsentrv}</strong></center>
-		    </div>
-			</c:if>
+		
 									       <h3 style="color:#fff;text-transform:uppercase;">
 									       <spring:message code="label.FindAtutor" />
 									       </h3>

@@ -552,7 +552,7 @@ redirectAttributes.addFlashAttribute("successsentrv", "La revue est ajoutée avec
 redirectAttributes.addFlashAttribute("successsentrv", "The review is added successfully!");			
 }
 
-return "redirect:/index";
+return "redirect:/profil_tutor/"+idTut;
 		 }
 		
 		@RequestMapping(value = "/dashboard_tutor", method = RequestMethod.GET)
